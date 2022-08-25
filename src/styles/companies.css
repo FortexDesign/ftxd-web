@@ -1,0 +1,39 @@
+.companies-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  font-family: "grotesk";
+  width: 315px;
+}
+
+.rating {
+  padding-top: 0 !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 170px;
+  text-align: center;
+}
+
+.text-desc {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 13px;
+  line-height: 10px;
+  text-transform: capitalize;
+}
+
+.heroFooter-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 80px;
+}
+
+@media (max-width: 768px) {
+
+  .companies-title {
+    width: 100%;
+  }
+
+}

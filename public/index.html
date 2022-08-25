@@ -14,6 +14,7 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -24,7 +25,29 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Fortex</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#141C32",
+              primaryYankee: "#1E2845",
+              secondary: "#0F51E4",
+              orange: "#ff49db",
+              success: "#ff7849",
+            },
+            fontFamily: {
+              grotesk: ["grotesk"],
+              "grotesk-thin": ["grotesk-thin"],
+              "grotesk-light": ["grotesk-light"],
+              "grotesk-black": ["grotesk-black"],
+              "grotesk-bold": ["grotesk-bold"],
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

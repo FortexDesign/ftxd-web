@@ -1,0 +1,393 @@
+@tailwind base;
+
+h1 {
+  @apply text-2xl;
+}
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
+}
+a {
+  @apply text-blue-600;
+}
+
+@font-face {
+  font-family: "grotesk";
+  src: local("GoldmanBold"),
+    url("../assets/fonts/Grotesk/NeueHaasDisplayMediu.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "grotesk-thin";
+  src: local("GoldmanBold"),
+    url("../assets/fonts/Grotesk/NeueHaasDisplayThin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "grotesk-light";
+  src: local("GoldmanBold"),
+    url("../assets/fonts/Grotesk/NeueHaasDisplayLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "grotesk-black";
+  src: local("GoldmanBold"),
+    url("../assets/fonts/Grotesk/NeueHaasDisplayBlack.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "grotesk-bold";
+  src: local("GoldmanBold"),
+    url("../assets/fonts/Grotesk/NeueHaasDisplayBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "grotesk-roman";
+  src: local("GoldmanBold"),
+    url("../assets/fonts/Grotesk/NeueHaasDisplayRoman.ttf") format("truetype");
+}
+.fade-in-tl {
+  -webkit-animation: fade-in-tl 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in-tl 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes fade-in-tl {
+  0% {
+    -webkit-transform: translateX(-50px) translateY(-50px);
+    transform: translateX(-50px) translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-tl {
+  0% {
+    -webkit-transform: translateX(-50px) translateY(-50px);
+    transform: translateX(-50px) translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "grotesk-roman";
+}
+
+.text-id{ 
+font-size: 16px;
+}
+
+.containerC {
+  position: relative;
+  width: 100%;
+  height: 680px;
+}
+
+.text-white1 {
+  color: rgba(255, 255, 255, 0.541) !important;
+}
+
+.border-white1 {
+  border: 0.5px solid rgba(255, 255, 255, 0.541) !important;
+}
+
+/* Make the image to responsive */
+.image {
+  display: block;
+  width: 100%;
+  height: 700px;
+  /*   box-shadow: 0 0 30px 30px #141c32 inset;
+ */
+  background-size: cover;
+  background-position: center center;
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    270deg,
+    rgba(20, 28, 50, 0) -106.52%,
+    #141c32 100%
+  );
+  color: #f1f1f1;
+  width: 100%;
+  height: 700px;
+
+  opacity: 0;
+  color: white;
+  text-align: center;
+}
+.overlay2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    270deg,
+    rgba(20, 28, 50, 0) -106.52%,
+    #141c32 100%
+  );
+  color: #f1f1f1;
+  width: 100%;
+  height: 700px;
+
+  opacity: 0;
+  color: white;
+  text-align: center;
+}
+
+.content-slide {
+  width: 100%;
+  padding: 0;
+}
+.text-type {
+  width: 564px;
+}
+/* When you mouse over the container, fade in the overlay title */
+.containerC .overlay {
+  opacity: 1;
+}
+
+.slide-content {
+  background-color: rgba(201, 35, 35, 0.8);
+  height: 500px;
+  width: 100%;
+  min-width: 100%;
+}
+
+.header-bg {
+  background: #141c3200;
+}
+
+.numeration {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.service-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 80px;
+  margin: 40px 0 40px 80px;
+}
+.service-head {
+  font-family: "grotesk";
+}
+
+.service-head > h5 > .react-typewriter-text-wrap > .react-typewriter-text {
+  text-align: left;
+}
+
+.fortex-container {
+  max-width: 1200px;
+}
+
+.header-fix {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  /*   box-shadow: 0px 4px 30px rgb(0 0 0 / 10%);
+ */
+  backdrop-filter: blur(20px);
+}
+
+.subhead-menu {
+  font-size: 8px;
+  line-height: 10px;
+  letter-spacing: 0.4em;
+}
+
+.w-logo {
+  height: 32px;
+  width: 198px;
+}
+
+.service {
+  display: block;
+}
+
+.service-collapse {
+  display: none;
+  padding: 0 10px;
+}
+
+.hero-footer {
+  margin-right: 50px;
+  line-height: 20px;
+}
+
+.hero-footer-title {
+  font-size: 80px;
+  line-height: 50px;
+}
+.hero-footer {
+  align-self: end;
+  padding-right: 100px;
+}
+
+.competition-image {
+  height: 480px;
+  margin: auto !important;
+}
+
+.hero-title {
+  font-family: "grotesk-thin";
+  font-size: 50px;
+  line-height: 69px;
+  letter-spacing: 2.5px;
+  display: inline-block;
+}
+.hero-title > .react-typewriter-text-wrap {
+  display: inline-block;
+  margin-left: 2.5px;
+}
+
+.hero-title > .react-typewriter-text-wrap > .react-typewriter-text {
+  font-family: "grotesk-thin";
+  font-size: 50px;
+  line-height: 69px;
+  letter-spacing: 2.5px;
+  display: inline-block;
+  margin-left: 2.5px;
+}
+
+.image-hero {
+  display: block;
+  top: 0;
+  right: 0;
+  height: 630px;
+  overflow: hidden;
+}
+
+.image-hero-mobile {
+  display: none;
+}
+
+.competition-container {
+  display: flex;
+  margin: auto;
+}
+
+.services-container {
+  display: flex;
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slick-dots li button {
+  pointer-events: none;
+}
+
+.border-w {
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.541);
+  border-top: 0.5px solid rgba(255, 255, 255, 0.541);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.541);
+  backdrop-filter: blur(25px);
+  padding: 6px 15px;
+  font-size: 20px;
+  font-family: "grotesk-roman";
+}
+
+.border-w:hover > svg {
+  color: #141c32 !important;
+}
+
+.border-wc {
+  border: 0.5px solid rgba(255, 255, 255, 0.541);
+  backdrop-filter: blur(25px);
+  padding: 10px 30px;
+  font-size: 14px;
+  font-family: "grotesk-roman";
+}
+@media (max-width: 768px) {
+  .containerC {
+    height: 300px;
+  }
+
+  /* Make the image to responsive */
+  .image {
+    height: 300px;
+  }
+
+  /* The overlay effect - lays on top of the container and over the image */
+  .overlay {
+    height: 300px;
+  }
+
+  .text-type {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .header-bg {
+    background: #161e34;
+    padding: 20px;
+  }
+  .services-container {
+    flex-direction: row-reverse;
+  }
+
+  .service {
+    display: none;
+  }
+
+  .service-collapse {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 30px;
+    line-height: 35px;
+  }
+
+  .hero-title > .react-typewriter-text-wrap > .react-typewriter-text {
+    font-size: 30px;
+    line-height: 35px;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .competition-container {
+    flex-direction: column-reverse;
+  }
+  .image-hero {
+    display: none;
+  }
+  .image-hero-mobile {
+    display: block;
+  }
+
+  .w-logo {
+    height: 30px;
+    width: 158px;
+  }
+  .hero-footer {
+    margin-right: 0;
+  }
+  .hero-footer-title {
+    font-size: 43px;
+  }
+
+  .hero-footer {
+    align-self: center;
+  }
+}
