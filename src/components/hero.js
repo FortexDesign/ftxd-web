@@ -1,23 +1,25 @@
-import React, { useRef } from "react"
-import HeroImgMobile from "../images/background/NotesMobile.png"
-import telecommunications from "../images/background/telecommunications.png"
-import permit from "../images/background/permit.jpg"
-import gpr from "../images/background/gpr.jpg"
-import bore from "../images/background/ftxd_bore.png"
-import eng from "../images/background/ftxd_eng.jpg"
-import Slider from "react-slick"
-import TypeWriterEffect from "react-typewriter-effect"
-import useIntersectionObserver from "../hooks/useIntersectionObserver"
-import { BsArrowRight } from "react-icons/bs"
+import React, { useRef } from "react";
+import HeroImgMobile from "../images/background/NotesMobile.png";
+import telecommunications from "../images/background/telecommunications.png";
+import permit from "../images/background/permit.jpg";
+import gpr from "../images/background/gpr.jpg";
+import bore from "../images/background/ftxd_bore.png";
+import eng from "../images/background/ftxd_eng.jpg";
+import Slider from "react-slick";
+import TypeWriterEffect from "react-typewriter-effect";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { BsArrowRight } from "react-icons/bs";
 export const Hero = ({ setCurrent }) => {
-  const Ref = useRef()
+  const Ref = useRef();
 
-  const inViewport2 = useIntersectionObserver(Ref, {})
+  const inViewport2 = useIntersectionObserver(Ref, {});
 
+
+  // this function detects in which section of the page I am to configure it in the current state variable
   if (inViewport2?.isIntersecting === true) {
-    setCurrent(`hero-${inViewport2?.isIntersecting}`)
+    setCurrent(`hero-${inViewport2?.isIntersecting}`);
   }
-
+  //parameters required by the slicer
   const settings = {
     dots: false,
     fade: true,
@@ -27,7 +29,8 @@ export const Hero = ({ setCurrent }) => {
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
-  }
+  };
+  const myRef = document.querySelector(".hero");
 
   return (
     <div ref={Ref} className="hero">
@@ -69,16 +72,18 @@ export const Hero = ({ setCurrent }) => {
             </Slider>
             <div className="h-full text-type top-0 flex flex-col justify-center absolute   ">
               <span className="ml-10 hero-title font-semibold text-white">
-                We design the blueprints for the future of
+                We design the blueprints for the future of 
+                {/* header text effect component */}
                 <TypeWriterEffect
-                  startDelay={0}
+                  scrollArea={myRef}
+                  startDelay={10}
                   cursorColor="transparent"
                   multiText={[
-                    "telecommunications.",
-                    "utility locating.",
-                    "utility locating.",
-                    "ISP engineering.",
-                    "surveying.",
+                    " telecommunications.",
+                    " utility permiting.",
+                    " utility locating.",
+                    " ISP engineering.",
+                    " surveying.",
                   ]}
                   multiTextDelay={1500}
                   typeSpeed={40}
@@ -98,5 +103,5 @@ export const Hero = ({ setCurrent }) => {
         </aside>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -26,6 +26,7 @@ function App() {
   const [domV, setDomv] = useState();
   const [isEnabled, setIsEnabled] = useState(true);
 
+  //according to the value of the current colors are assigned to the div
   useEffect(() => {
     if (
       current == "competition-true" ||
@@ -36,16 +37,23 @@ function App() {
       setIsEnabled(false);
     } else {
       setcolorDiv("#161e34");
-      setIsEnabled(true);
     }
 
-    if (current == "powerfull-true") {
+    if (
+      current == "powerfull-true" ||
+      current == "competition-true" ||
+      current == "hero-true" ||
+      current == "heroFooter-true"
+    ) {
       setIsEnabled(false);
+    } else {
     }
   }, [current, colorDiv]);
+  console.log("🚀 ~ file: App.js ~ line 53 ~ App ~ current", current);
 
   const Ref = useRef();
 
+  // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, {});
   if (inViewport2?.isIntersecting == true) {
     setCurrent(`service-${inViewport2?.isIntersecting}`);
@@ -73,18 +81,21 @@ function App() {
               setCurrent={setCurrent}
               setcontentDiv={setcontentDiv}
             />
-            <div
-              className="bg-white service fortex-container w-full mx-auto relative pt-10"
-              style={{ zIndex: "10" }}
-            >
-              <NumberService setCurrent={setCurrent} />
-
-              <Services
-                current={current}
-                setCurrent={setCurrent}
-                isEnabled={isEnabled}
-                setcontentDiv={setcontentDiv}
-              />
+            <div className="bg-white  fortex-container w-full mx-auto relative pt-10">
+              <div className="service-number">
+                <NumberService setCurrent={setCurrent} />
+              </div>
+              <div
+                className="bg-white services  fortex-container w-full mx-auto relative pt-10"
+                style={{ zIndex: "10" }}
+              >
+                <Services
+                  current={current}
+                  setCurrent={setCurrent}
+                  isEnabled={isEnabled}
+                  setcontentDiv={setcontentDiv}
+                />
+              </div>
             </div>
             <PowerfullItems
               setCurrent={setCurrent}

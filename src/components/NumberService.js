@@ -5,11 +5,14 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver"
 export const NumberService = ({ setCurrent }) => {
   const Ref = useRef()
 
+  // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, { rootMargin: "-200px" })
   if (inViewport2?.isIntersecting === true) {
     setCurrent(`services-${inViewport2?.isIntersecting}`)
   }
   return (
+    <div style={{padding:'0 10px'}}>
+
     <span style={{ height: "400px" }} ref={Ref} className="numeration">
       <TypeWriterEffect
         startDelay={100}
@@ -20,7 +23,8 @@ export const NumberService = ({ setCurrent }) => {
         cursorColor="transparent"
         text="02/"
         typeSpeed={200}
-      />
+        />
     </span>
+        </div>
   )
 }

@@ -17,7 +17,7 @@ export const ServicesCollapse = () => {
       {services.map(item => (
         <div class="space-y-4">
           <details class="group">
-            <summary className="flex items-center justify-between w-full p-4 cursor-pointer border-t  border-primary">
+            <summary className="flex items-center justify-between w-full py-4 cursor-pointer border-t  border-primary">
               <div className="flex w-full items-center  lg:text-2xl sm:text-base service-head">
                 <h5 className=" text-gray-900 lg:py-4 sm:py-1 text-start w-52 ">
                   {item.id}

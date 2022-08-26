@@ -1,34 +1,32 @@
-import React, { useEffect, useRef } from "react"
-import { PowerfullItems as items } from "../common/utils/dummy/PowerfullItems"
-import TypeWriterEffect from "react-typewriter-effect"
-import useIntersectionObserver from "../hooks/useIntersectionObserver"
+import React, { useEffect, useRef } from "react";
+import { PowerfullItems as items } from "../common/utils/dummy/PowerfullItems";
+import TypeWriterEffect from "react-typewriter-effect";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
-  const myRef = document.querySelector(".powerfull")
+  const myRef = document.querySelector(".powerfull");
 
-  const Ref = useRef()
+  const Ref = useRef();
 
-  const inViewport2 = useIntersectionObserver(Ref, {})
+  // this function detects in which section of the page I am to configure it in the current state variable
+  const inViewport2 = useIntersectionObserver(Ref, {});
   if (inViewport2?.isIntersecting === true) {
-    setCurrent(`powerfull-${inViewport2?.isIntersecting}`)
+    setCurrent(`powerfull-${inViewport2?.isIntersecting}`);
   }
 
   useEffect(() => {
     if (inViewport2?.isIntersecting == true) {
-      setIsEnabled(false)
+      setIsEnabled(false);
     } else {
-      setIsEnabled(true)
+      setIsEnabled(true);
     }
-  }, [inViewport2?.isIntersecting])
+  }, [inViewport2?.isIntersecting]);
 
   return (
     <div ref={Ref} className="powerfull">
-      <section
-        style={{ zIndex: "1000" }}
-        className="text-primary bg-white"
-      >
+      <section style={{ zIndex: "1000" }} className="text-primary bg-white power ">
         <div className="fortex-container powerfull w-full mx-auto">
-          <div className="max-w-screen-xl  py-16 ">
+          <div className="max-w-screen-xl py-16 ">
             <div className="flex flex-col">
               <span className="numeration">03/</span>
 
@@ -68,7 +66,7 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
                         scrollArea={myRef}
                       />
                     </p>
-                    {item.descs.map(item => (
+                    {item.descs.map((item) => (
                       <p className="mt-3 text-sm text-primary">{item}</p>
                     ))}
                   </div>
@@ -79,5 +77,5 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
