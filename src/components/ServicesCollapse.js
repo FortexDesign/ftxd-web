@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import { services } from "../common/utils/dummy/services"
-import { AiOutlineArrowDown } from "react-icons/ai"
+import React, { useState } from "react";
+import { services } from "../common/utils/dummy/services";
+import { AiOutlineArrowDown } from "react-icons/ai";
 
 export const ServicesCollapse = () => {
   const [ImageSwitch, setImageSwitch] = useState({
     id: "",
     img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
-  })
+  });
   return (
     <div className="bg-white fortex-container w-full mx-auto relative pt-10">
       <div className="flex flex-col">
@@ -14,7 +14,7 @@ export const ServicesCollapse = () => {
         <span className="service-title inline-block">Services</span>
       </div>
 
-      {services.map(item => (
+      {services.map((item) => (
         <div class="space-y-4">
           <details class="group">
             <summary className="flex items-center justify-between w-full py-4 cursor-pointer border-t  border-primary">
@@ -32,18 +32,20 @@ export const ServicesCollapse = () => {
             </summary>
 
             <p className="services-container">
-              <div className="lg:p-20 sm:p-0 my-auto flex-1 fade-in-tl">
+              {/*    <div className="lg:p-20 sm:p-0 my-auto flex-1 fade-in-tl">
                 <img
-                  /* className="fade-in-tl" */ alt={ImageSwitch.id}
+                   className="fade-in-tl"  alt={ImageSwitch.id}
                   src={ImageSwitch.img}
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col flex-1 font-medium justify-center cursor-pointer">
                 {item.subservices.map((i, ix) => (
                   <span
                     key={ix}
                     onClick={() => setImageSwitch({ id: i.name, img: i.image })}
-                    className="border-b border-primary text-gray-900 py-4 text-sm mr-10 "
+                    className={`${
+                      ix !== 4 ? "border-b" : ""
+                    }  border-primary text-gray-900 py-4 text-sm`}
                   >
                     {i.name}
                   </span>
@@ -54,5 +56,5 @@ export const ServicesCollapse = () => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
