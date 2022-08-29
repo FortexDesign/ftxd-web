@@ -39,7 +39,7 @@ function App() {
       setcolorDiv("#161e34");
     }
 
-    if (
+/*     if (
       current == "powerfull-true" ||
       current == "competition-true" ||
       current == "hero-true" ||
@@ -47,7 +47,7 @@ function App() {
     ) {
       setIsEnabled(false);
     } else {
-    }
+    } */
   }, [current, colorDiv]);
   console.log("🚀 ~ file: App.js ~ line 53 ~ App ~ current", current);
 
