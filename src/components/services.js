@@ -6,11 +6,17 @@ import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 export const Services = ({ setCurrent, isEnabled, current }) => {
+  // State to set the image in section viewport
+
   const [ImageSwitch, setImageSwitch] = useState({
     id: "",
     img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
   });
+
+  //
   const [enabledLocal, setEnabledLocal] = useState(true);
+
+  // Set the references
   const myRef2 = document.querySelector(".service-title");
   const myRef3 = document.querySelector(".services");
   const Ref = useRef();
@@ -20,6 +26,8 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
   if (inViewport2?.isIntersecting === true) {
     setCurrent(`services-${inViewport2?.isIntersecting}`);
   }
+
+  // set the fixed enabled
 
   useEffect(() => {
     setEnabledLocal(isEnabled);

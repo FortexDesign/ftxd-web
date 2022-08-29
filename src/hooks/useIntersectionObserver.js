@@ -1,6 +1,6 @@
 import { useEffect, useState,RefObject } from "react"
 
-
+// function to observe the element in the Viewport
 export default function useIntersectionObserver(elementRef,{
   threshold = 0.5,
   root = null,

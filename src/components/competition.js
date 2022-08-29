@@ -5,6 +5,7 @@ import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 export const Competition = ({ setCurrent }) => {
+  // get the ref of div
   const myRef = document.querySelector(".scrollable-div");
   const Ref = useRef();
   const inViewport2 = useIntersectionObserver(Ref, {});

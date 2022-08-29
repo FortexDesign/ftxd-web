@@ -1,26 +1,28 @@
-import React, { useEffect, useRef } from "react"
-import { performanceItems } from "../common/utils/dummy/performance"
-import TypeWriterEffect from "react-typewriter-effect"
-import useOnScreen from "../hooks/useNearScreen"
-import useIntersectionObserver from "../hooks/useIntersectionObserver"
+import React, { useEffect, useRef } from "react";
+import { performanceItems } from "../common/utils/dummy/performance";
+import TypeWriterEffect from "react-typewriter-effect";
+import useOnScreen from "../hooks/useNearScreen";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 export const Performance = ({ setCurrent, setIsEnabled }) => {
-  const myRef = document.querySelector(".powerfull")
+  const myRef = document.querySelector(".powerfull");
 
-  const Ref = useRef()
+  const Ref = useRef();
 
-  const inViewport2 = useIntersectionObserver(Ref, {})
+  // Verify if this element is in Viewport
+
+  const inViewport2 = useIntersectionObserver(Ref, {});
   if (inViewport2?.isIntersecting === true) {
-    setCurrent(`performance-${inViewport2?.isIntersecting}`)
+    setCurrent(`performance-${inViewport2?.isIntersecting}`);
   }
 
   useEffect(() => {
     if (inViewport2?.isIntersecting == true) {
-      setIsEnabled(false)
+      setIsEnabled(false);
     } else {
-      setIsEnabled(true)
+      setIsEnabled(true);
     }
-  }, [inViewport2?.isIntersecting])
+  }, [inViewport2?.isIntersecting]);
 
   return (
     <div ref={Ref} className="performance">
@@ -77,5 +79,5 @@ export const Performance = ({ setCurrent, setIsEnabled }) => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};

@@ -1,12 +1,12 @@
-import React from "react"
-import brands from "../images/background/brands.png"
-import { AiFillStar, AiOutlineStar } from "react-icons/ai"
-import TypeWriterEffect from "react-typewriter-effect"
-import { performanceItems } from "../common/utils/dummy/performance"
-import Slider from "react-slick"
+import React from "react";
+import brands from "../images/background/brands.png";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import TypeWriterEffect from "react-typewriter-effect";
+import { performanceItems } from "../common/utils/dummy/performance";
+import Slider from "react-slick";
 
 export const Rating = () => {
-  const myRef = document.querySelector(".rating-c")
+  const myRef = document.querySelector(".rating-c");
 
   const settings = {
     dots: true,
@@ -16,28 +16,12 @@ export const Rating = () => {
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
-  }
+  };
 
   return (
     <div className=" relative">
-      {/*    <div
-        style={{ height: "100%", width: "30vw" }}
-        className="bg-secondary absolute left-0"
-      ></div> */}
       <div className="fortex-container mx-auto relative rating-c">
         <aside className=" bg-secondary sm:grid sm:grid-cols-2 h-full w-full">
-          {/* <div className="flex flex-col justify-center items-center">
-            <span className="rating text-white">4.5</span>
-            <div className="flex">
-              {[1, 2, 3, 4].map(star => (
-                <AiFillStar className="text-white text-3xl mx-2" />
-              ))}
-              <AiOutlineStar className="text-white text-3xl mx-2" />
-            </div>
-            <p className="text-white text-desc mx-auto mb-20">
-              CUSTOMER SATISFACTION
-            </p>
-          </div> */}
           <div className="flex flex-col">
             <span
               style={{ marginTop: "20%" }}
@@ -113,5 +97,5 @@ export const Rating = () => {
         </aside>
       </div>
     </div>
-  )
-}
+  );
+};

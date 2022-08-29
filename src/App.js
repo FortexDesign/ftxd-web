@@ -19,11 +19,13 @@ import { Performance } from "./components/Statics";
 import { NumberService } from "./components/NumberService";
 
 function App() {
+  //  State to expanded menu
   const [isExpanded, toggleExpansion] = useState(false);
+  // States to observe the current container
   const [contentDiv, setcontentDiv] = useState(null);
   const [current, setCurrent] = useState(null);
+  // State to change the color of header
   const [colorDiv, setcolorDiv] = useState("white");
-  const [domV, setDomv] = useState();
   const [isEnabled, setIsEnabled] = useState(true);
 
   //according to the value of the current colors are assigned to the div
@@ -39,7 +41,7 @@ function App() {
       setcolorDiv("#161e34");
     }
 
-/*     if (
+    /*     if (
       current == "powerfull-true" ||
       current == "competition-true" ||
       current == "hero-true" ||
@@ -49,7 +51,6 @@ function App() {
     } else {
     } */
   }, [current, colorDiv]);
-  console.log("🚀 ~ file: App.js ~ line 53 ~ App ~ current", current);
 
   const Ref = useRef();
 

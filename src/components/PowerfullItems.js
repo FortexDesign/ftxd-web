@@ -14,6 +14,8 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
     setCurrent(`powerfull-${inViewport2?.isIntersecting}`);
   }
 
+
+  // Verify if this element is in Viewport
   useEffect(() => {
     if (inViewport2?.isIntersecting == true) {
       setIsEnabled(false);
