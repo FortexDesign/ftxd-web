@@ -7,7 +7,7 @@ import Slider from "react-slick";
 
 export const Rating = () => {
   const myRef = document.querySelector(".rating-c");
-
+/// set slider's settings
   const settings = {
     dots: true,
     infinite: true,
