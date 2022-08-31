@@ -7,8 +7,18 @@ const BACKWARD = "backward";
  * Read the blog post here:
  * https://letsbuildui.dev/articles/a-typing-text-effect-with-react-hooks
  */
-export const useTypingText = (words, keySpeed = 1000, maxPauseAmount = 10) => {
-  const [wordIndex, setWordIndex] = useState(0);
+export const useTypingText = (
+  words,
+  keySpeed = 1000,
+  maxPauseAmount = 10,
+  wordIndex,
+  setWordIndex
+) => {
+  console.log(
+    "🚀 ~ file: useTypingText.js ~ line 12 ~ useTypingText ~ wordIndex",
+    wordIndex
+  );
+
   const [currentWord, setCurrentWord] = useState(words[wordIndex].split(""));
   const [isStopped, setIsStopped] = useState(false);
   const direction = useRef(BACKWARD);
@@ -81,6 +91,6 @@ export const useTypingText = (words, keySpeed = 1000, maxPauseAmount = 10) => {
       </span>
     ),
     start: () => setIsStopped(false),
-    stop
+    stop,
   };
 };
