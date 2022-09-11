@@ -3,6 +3,7 @@ import { services } from "../common/utils/dummy/services";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
 export const ServicesCollapse = () => {
+    // State to set the image in section viewport
   const [ImageSwitch, setImageSwitch] = useState({
     id: "",
     img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",

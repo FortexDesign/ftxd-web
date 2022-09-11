@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import HeroImgMobile from "../images/background/NotesMobile.png";
 import telecommunications from "../images/background/telecommunications.png";
 import permit from "../images/background/permit.jpg";
@@ -9,11 +9,16 @@ import Slider from "react-slick";
 import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { BsArrowRight } from "react-icons/bs";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
+import { useTypingText } from "../hooks/useTypingText";
+
 export const Hero = ({ setCurrent }) => {
-  const Ref = useRef();
-
+  const [wordIndex, setWordIndex] = useState(0);
+  /*   const [change, setchange] = useState({ slideIndex: 0, updateCount: 0 });
+   */ const Ref = useRef();
   const inViewport2 = useIntersectionObserver(Ref, {});
-
   // this function detects in which section of the page I am to configure it in the current state variable
   if (inViewport2?.isIntersecting === true) {
     setCurrent(`hero-${inViewport2?.isIntersecting}`);
@@ -23,21 +28,77 @@ export const Hero = ({ setCurrent }) => {
     dots: false,
     fade: true,
     infinite: true,
-    speed: 1200,
+    autoplay: true,
+    pauseOnHover: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
     arrows: false,
+    /*     afterChange: () =>
+      this.setState((state) => ({ updateCount: state.updateCount + 1 })),
+    afterChange: (current) => this.setState({ activeSlide2: current }), */
   };
   const myRef = document.querySelector(".hero");
+  const customSlider = useRef();
+
+  const items = [
+    <div
+      style={{ backgroundImage: `url(${telecommunications})` }}
+      className="image w-full"
+    ></div>,
+    <div
+      style={{ backgroundImage: `url(${permit})` }}
+      className="image w-full"
+    ></div>,
+    <div
+      style={{ backgroundImage: `url(${gpr})` }}
+      className="image w-full"
+    ></div>,
+    <div
+      style={{ backgroundImage: `url(${bore})` }}
+      className="image w-full"
+    ></div>,
+
+    <div
+      style={{ backgroundImage: `url(${eng})` }}
+      className="image w-full"
+    ></div>,
+  ];
+
+  const { word } = useTypingText(
+    [
+      "telecommunications.",
+      "utility permiting.",
+      "utility locating.",
+      "ISP engineering.",
+      "surveying.",
+    ],
+    70,
+    10,
+    wordIndex,
+    setWordIndex
+  );
+
+  useEffect(() => {
+    customSlider.current.slickGoTo(wordIndex);
+  }, [wordIndex]);
 
   return (
     <div ref={Ref} className="hero">
       <div className="bg-primary relative h-auto pt-20 ">
         <aside className="fortex-container mx-auto bg-primary w-full">
           <div className="relative content-slide">
-            {/* Slider with images and type effects  */}
-            <Slider {...settings}>
+            {/*   <AliceCarousel
+              autoPlay
+            
+              animationDuration={5000}
+              disableDotsControls
+              disableButtonsControls
+              items={items}
+            /> */}
+            <Slider
+              ref={(slider) => (customSlider.current = slider)}
+              {...settings}
+            >
               <div className="containerC">
                 <div
                   style={{ backgroundImage: `url(${telecommunications})` }}
@@ -72,23 +133,7 @@ export const Hero = ({ setCurrent }) => {
             </Slider>
             <div className="h-full text-type top-0 flex flex-col justify-center absolute   ">
               <span className="ml-10 hero-title font-semibold text-white">
-                We design the blueprints for the future of
-                {/* header text effect component */}
-                <TypeWriterEffect
-                  scrollArea={myRef}
-                  startDelay={10}
-                  cursorColor="transparent"
-                  multiText={[
-                    " telecommunications.",
-                    " utility permiting.",
-                    " utility locating.",
-                    " ISP engineering.",
-                    " surveying.",
-                  ]}
-                  multiTextDelay={1500}
-                  typeSpeed={40}
-                  multiTextLoop={true}
-                />
+                We design the blueprints for the future of {word}
               </span>
               <a
                 style={{ width: "202px" }}

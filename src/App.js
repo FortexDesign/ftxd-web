@@ -36,8 +36,8 @@ function App() {
       current == "heroFooter-true"
     ) {
       setcolorDiv("white");
-      setIsEnabled(false);
-    } else {
+/*       setIsEnabled(false);
+ */    } else {
       setcolorDiv("#161e34");
     }
 
