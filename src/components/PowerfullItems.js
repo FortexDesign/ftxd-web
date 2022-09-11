@@ -14,7 +14,6 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
     setCurrent(`powerfull-${inViewport2?.isIntersecting}`);
   }
 
-
   // Verify if this element is in Viewport
   useEffect(() => {
     if (inViewport2?.isIntersecting == true) {
@@ -26,13 +25,17 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
 
   return (
     <div ref={Ref} className="powerfull">
-      <section style={{ zIndex: "1000" }} className="text-primary bg-white power ">
+      <section
+        style={{ zIndex: "1000" }}
+        className="text-primary bg-white power "
+      >
         <div className="fortex-container powerfull w-full mx-auto">
           <div className="max-w-screen-xl py-16 ">
             <div className="flex flex-col">
               <span className="numeration">03/</span>
 
               <span className="mt-4 text-primary powerfull-title mb-16 inline-block">
+                {/* Typing with script effect */}
                 <TypeWriterEffect
                   textStyle={{
                     fontFamily: "grotesk",
@@ -49,6 +52,8 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
                 />
               </span>
             </div>
+
+            {/* Powerfull items from dummy   */}
             <div className="grid grid-cols-1 gap-2 md:gap-12 md:mt-16 md:grid-cols-2 lg:grid-cols-4">
               {items.map((item, index) => (
                 <div key={index} className="flex flex-col items-start">

@@ -1,3 +1,4 @@
+/* Items For powerfull section */
 export const performanceItems = [
   {
     title: "470,000+",
@@ -12,4 +13,4 @@ export const performanceItems = [
     description:
       "of redlines drafted, processing thousands of pages of hand-written and GIS data.",
   },
-]
+];

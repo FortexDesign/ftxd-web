@@ -41,15 +41,6 @@ function App() {
       setcolorDiv("#161e34");
     }
 
-    /*     if (
-      current == "powerfull-true" ||
-      current == "competition-true" ||
-      current == "hero-true" ||
-      current == "heroFooter-true"
-    ) {
-      setIsEnabled(false);
-    } else {
-    } */
   }, [current, colorDiv]);
 
   const Ref = useRef();
@@ -64,6 +55,7 @@ function App() {
     <>
       {isExpanded ? (
         <div className="absolute bg-primary top-0 left-0 w-full z-10 h-full">
+          {/* The menu component is visible when the state "isexpanded" is true */}
           <MenuFull
             contentDiv={contentDiv}
             isExpanded={isExpanded}
@@ -71,17 +63,26 @@ function App() {
           />
         </div>
       ) : (
+
+        /* Layout component content the header and footer components and the another components in the landing page are the childs  */
         <Layout
           color={colorDiv}
           isExpanded={isExpanded}
           toggleExpansion={toggleExpansion}
         >
+          {/* Parallaz provider is a wrapper to all the react-scroll-parallax targets */}
           <ParallaxProvider>
+
+            {/* Hero contain the first section of this page,this is the the slider with type text effect */}
             <Hero setCurrent={setCurrent} setcontentDiv={setcontentDiv} />
+
+            {/* This section contain a blue background  */}
             <Competition
               setCurrent={setCurrent}
               setcontentDiv={setcontentDiv}
             />
+
+            {/* The services section contains the services offered by fortex to the community in general, here you can find the effect of superimposing each service on one */}
             <div className="bg-white  fortex-container w-full mx-auto relative pt-10">
               <div className="service-number">
                 <NumberService setCurrent={setCurrent} />
@@ -98,11 +99,15 @@ function App() {
                 />
               </div>
             </div>
-            <PowerfullItems
+
+            {/* The powerfull section contain a description about all the items that make to fortex better */}
+            <PowerfTullItems
               setCurrent={setCurrent}
               setIsEnabled={setIsEnabled}
               setcontentDiv={setcontentDiv}
             />
+
+            {/* This section contains the companies Fortex has worked with and some statistics in a slider*/}
             <Rating setCurrent={setCurrent} setcontentDiv={setcontentDiv} />
 
             <HeroFooter setCurrent={setCurrent} setcontentDiv={setcontentDiv} />

@@ -10,14 +10,10 @@ function Header({ isExpanded, toggleExpansion, color }) {
         <div className="flex items-center flex-shrink-0 mr-6 text-white">
           <a href="/">
             <Logo color={color} />
-            {/*   <img
-              className="text-xl font-semibold tracking-tight w-logo"
-              alt="logo"
-              src={logo}
-            /> */}
           </a>
         </div>
         <div className="block lg:hidden">
+          {/* This button make visible the menu component */}
           <button
             onClick={() => toggleExpansion(!isExpanded)}
             className="flex items-center px-4 py-2 text-white border border-white hover:text-white hover:border-white"
@@ -32,6 +28,8 @@ function Header({ isExpanded, toggleExpansion, color }) {
             </svg>
           </button>
         </div>
+
+        {/* This div is visible dynamic with the state*/}
         <div
           className={`${
             isExpanded ? `block` : `hidden`

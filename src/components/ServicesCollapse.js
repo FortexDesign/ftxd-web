@@ -32,12 +32,7 @@ export const ServicesCollapse = () => {
             </summary>
 
             <p className="services-container">
-              {/*    <div className="lg:p-20 sm:p-0 my-auto flex-1 fade-in-tl">
-                <img
-                   className="fade-in-tl"  alt={ImageSwitch.id}
-                  src={ImageSwitch.img}
-                />
-              </div> */}
+              {/* This section contain all the item inside one service and when the span is clicked change the image in the service */}
               <div className="flex flex-col flex-1 font-medium justify-center cursor-pointer">
                 {item.subservices.map((i, ix) => (
                   <span

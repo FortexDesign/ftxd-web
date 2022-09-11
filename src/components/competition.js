@@ -73,26 +73,6 @@ export const Competition = ({ setCurrent }) => {
             </div>
           </aside>
         </div>
-        {/*      <Controller>
-            <Scene triggerHook="onLeave" duration={1000} pin>
-              {progress => (
-                <Timeline totalProgress={progress} paused>
-                  <Tween
-                    from={{ x: "0%", top: "0%" }}
-                    to={{ x: "10%", top: "0%" }}
-                  ></Tween>
-                  <Timeline
-                    target={
-                 
-                    }
-                  >
-                    <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} />
-                    <Tween to={{ x: "0%" }} />
-                  </Timeline>
-                </Timeline>
-              )}
-            </Scene>
-          </Controller> */}
       </div>
     </div>
   );

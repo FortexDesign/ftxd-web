@@ -14,7 +14,6 @@ export const Hero = ({ setCurrent }) => {
 
   const inViewport2 = useIntersectionObserver(Ref, {});
 
-
   // this function detects in which section of the page I am to configure it in the current state variable
   if (inViewport2?.isIntersecting === true) {
     setCurrent(`hero-${inViewport2?.isIntersecting}`);
@@ -37,6 +36,7 @@ export const Hero = ({ setCurrent }) => {
       <div className="bg-primary relative h-auto pt-20 ">
         <aside className="fortex-container mx-auto bg-primary w-full">
           <div className="relative content-slide">
+            {/* Slider with images and type effects  */}
             <Slider {...settings}>
               <div className="containerC">
                 <div
@@ -72,7 +72,7 @@ export const Hero = ({ setCurrent }) => {
             </Slider>
             <div className="h-full text-type top-0 flex flex-col justify-center absolute   ">
               <span className="ml-10 hero-title font-semibold text-white">
-                We design the blueprints for the future of 
+                We design the blueprints for the future of
                 {/* header text effect component */}
                 <TypeWriterEffect
                   scrollArea={myRef}

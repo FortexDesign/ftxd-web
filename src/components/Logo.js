@@ -1,6 +1,7 @@
-import * as React from "react"
+import * as React from "react";
 
-const LogoComponent = props => (
+/* Logo svg make component */
+const LogoComponent = (props) => (
   <svg
     width={199}
     height={34}
@@ -19,6 +20,6 @@ const LogoComponent = props => (
       d="M16.5 12V1M12.152 17.5H1.243M17.5 21.848v10.909M22 16.5h11"
     />
   </svg>
-)
+);
 
-export default LogoComponent
+export default LogoComponent;

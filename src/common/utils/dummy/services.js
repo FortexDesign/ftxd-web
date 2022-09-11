@@ -1,3 +1,5 @@
+/* Dummy for the services in slider */
+
 export const services = [
   {
     id: "01 /",
@@ -10,7 +12,7 @@ export const services = [
         name: "Outside Plant Engineering",
         image:
           "https://cdn.pixabay.com/photo/2019/02/06/16/32/architect-3979490_960_720.jpg",
-      },
+      },/*  */
       {
         name: "Inside Plant Engineering",
         image:
@@ -169,4 +171,4 @@ export const services = [
       },
     ],
   },
-]
+];

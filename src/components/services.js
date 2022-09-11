@@ -55,12 +55,11 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
               />
             </span>
           </div>
+
+          {/* This section make posible the fixed effect */}
           {services.map((item, index) => (
             <Controller>
               <Scene enabled={enabledLocal && enabledLocal} triggerHook={0} pin>
-                {/*   <Timeline paused>
-                <Timeline>
-              <Tween> */}
                 <div key={index} className="space-y-2 pb-10 pt-20 bg-white">
                   <summary className="flex items-center w-full p-4 cursor-pointer border-t border-b border-primary">
                     <div className=" w-full lg:text-md sm:text-base service-head">
@@ -79,10 +78,13 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                     </div>
                   </summary>
 
+                  {/* Image switched */}
                   <div className="services-container">
                     <div className="lg:py-10 lg:pr-10 sm:p-0 my-auto flex-1 fade-in-tl">
                       <img alt={ImageSwitch.id} src={ImageSwitch.img} />
                     </div>
+                    {/* This section contain all the item inside one service and when the span is clicked change the image in the service */}
+
                     <div className="flex flex-col flex-1 font-medium justify-center cursor-pointer">
                       {item.subservices.map((i, ix) => (
                         <span
@@ -103,6 +105,8 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
           ))}
         </div>
       </div>
+
+      {/* This section is visible only when the viewport is in mobile size */}
 
       <div className="service-collapse">
         <ServicesCollapse />

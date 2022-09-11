@@ -52,6 +52,8 @@ export const Performance = ({ setCurrent, setIsEnabled }) => {
                 />
               </span>
             </div>
+
+            {/*section with different collaborating brands*/}
             <div className="grid grid-cols-1 md:gap-12 md:mt-8 md:grid-cols-2 lg:grid-cols-3">
               {performanceItems.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">

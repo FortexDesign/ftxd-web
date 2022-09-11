@@ -1,3 +1,6 @@
+/* Dummy for the powerfull items */
+
+
 export const PowerfullItems = [
   {
     id: "-- A",
