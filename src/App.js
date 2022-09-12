@@ -101,7 +101,7 @@ function App() {
             </div>
 
             {/* The powerfull section contain a description about all the items that make to fortex better */}
-            <PowerfTullItems
+            <PowerfullItems
               setCurrent={setCurrent}
               setIsEnabled={setIsEnabled}
               setcontentDiv={setcontentDiv}

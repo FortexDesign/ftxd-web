@@ -14,7 +14,7 @@ export default function useIntersectionObserver(elementRef,{
   const updateEntry = ([entry]) => {
     setEntry(entry)
   }
-
+/* Detect if an element is in the viewport and set the states to return */
   useEffect(() => {
     const node = elementRef?.current // DOM Ref
     const hasIOSupport = !!window.IntersectionObserver

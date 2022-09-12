@@ -10,15 +10,11 @@ const BACKWARD = "backward";
 export const useTypingText = (
   words,
   keySpeed = 1000,
-  maxPauseAmount = 10,
+  maxPauseAmount = 20,
   wordIndex,
   setWordIndex
 ) => {
-  console.log(
-    "🚀 ~ file: useTypingText.js ~ line 12 ~ useTypingText ~ wordIndex",
-    wordIndex
-  );
-
+  /*  */
   const [currentWord, setCurrentWord] = useState(words[wordIndex].split(""));
   const [isStopped, setIsStopped] = useState(false);
   const direction = useRef(BACKWARD);
@@ -50,6 +46,7 @@ export const useTypingText = (
       letterIndex.current = letterIndex.current + 1;
     };
 
+    /* Effect to delete and type text */
     const backspace = () => {
       if (letterIndex.current === 0) {
         const isOnLastWord = wordIndex === words.length - 1;

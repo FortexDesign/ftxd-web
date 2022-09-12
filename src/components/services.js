@@ -1,17 +1,35 @@
 import React, { useEffect, useRef, useState } from "react";
-import { services } from "../common/utils/dummy/services";
 import { Controller, Scene } from "react-scrollmagic";
-import { ServicesCollapse } from "./ServicesCollapse";
-import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { services } from "../common/utils/dummy/services";
+import TypeWriterEffect from "react-typewriter-effect";
+import { ServicesCollapse } from "./ServicesCollapse";
 
 export const Services = ({ setCurrent, isEnabled, current }) => {
   // State to set the image in section viewport
 
-  const [ImageSwitch, setImageSwitch] = useState({
-    id: "",
-    img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
-  });
+  const [ImageSwitch, setImageSwitch] = useState([
+    {
+      id: "",
+      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+    },
+    {
+      id: "",
+      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+    },
+    {
+      id: "",
+      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+    },
+    {
+      id: "",
+      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+    },
+    {
+      id: "",
+      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+    },
+  ]);
 
   //
   const [enabledLocal, setEnabledLocal] = useState(true);
@@ -32,6 +50,17 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
   useEffect(() => {
     setEnabledLocal(isEnabled);
   }, [isEnabled]);
+
+  const handleImage = (id, img, index) => {
+    ImageSwitch[index].img = img;
+    setImageSwitch((prevState) => {
+      return [...prevState, ImageSwitch];
+    });
+    console.log(
+      "🚀 ~ file: services.js ~ line 57 ~ handleImage ~ ImageSwitch",
+      ImageSwitch
+    );
+  };
 
   return (
     <>
@@ -81,7 +110,10 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                   {/* Image switched */}
                   <div className="services-container">
                     <div className="lg:py-10 lg:pr-10 sm:p-0 my-auto flex-1 fade-in-tl">
-                      <img alt={ImageSwitch.id} src={ImageSwitch.img} />
+                      <img
+                        alt={ImageSwitch[index].id}
+                        src={ImageSwitch[index].img}
+                      />
                     </div>
                     {/* This section contain all the item inside one service and when the span is clicked change the image in the service */}
 
@@ -89,9 +121,7 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                       {item.subservices.map((i, ix) => (
                         <span
                           key={ix}
-                          onClick={() =>
-                            setImageSwitch({ id: i.name, img: i.image })
-                          }
+                          onClick={() => handleImage(i.name, i.image, index)}
                           className="border-b  px-4 service-head border-primary text-gray-900 py-10 numeration "
                         >
                           {i.name}
