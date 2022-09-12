@@ -1,10 +1,10 @@
-import React, { useRef, useState,useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import HeroImgMobile from "../images/background/NotesMobile.png";
 import telecommunications from "../images/background/telecommunications.png";
-import permit from "../images/background/permit.jpg";
-import gpr from "../images/background/gpr.jpg";
-import bore from "../images/background/ftxd_bore.png";
-import eng from "../images/background/ftxd_eng.jpg";
+import permit from "../images/background/permit2.png";
+import gpr from "../images/background/gpr2.png";
+import bore from "../images/background/ftxd_bore1.png";
+import eng from "../images/background/ftxd_engup.png";
 import Slider from "react-slick";
 import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
@@ -88,7 +88,7 @@ export const Hero = ({ setCurrent }) => {
         <aside className="fortex-container mx-auto bg-primary w-full">
           <div className="relative content-slide">
             {/*   <AliceCarousel
-              autoPlay
+              autoPlay  
             
               animationDuration={5000}
               disableDotsControls
@@ -102,7 +102,7 @@ export const Hero = ({ setCurrent }) => {
               <div className="containerC">
                 <div
                   style={{ backgroundImage: `url(${telecommunications})` }}
-                  className="image w-full"
+                  className="image w-full "
                 ></div>
               </div>
 
