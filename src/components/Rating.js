@@ -7,7 +7,7 @@ import Slider from "react-slick";
 
 export const Rating = () => {
   const myRef = document.querySelector(".rating-c");
-/// set slider's settings
+  /// set slider's settings
   const settings = {
     dots: true,
     infinite: true,
@@ -21,12 +21,9 @@ export const Rating = () => {
   return (
     <div className=" relative">
       <div className="fortex-container mx-auto relative rating-c">
-        <aside className=" bg-secondary sm:grid sm:grid-cols-2 h-full w-full">
+        <aside className="bg-secondary sm:grid sm:grid-cols-2 h-full w-full items-center">
           <div className="flex flex-col">
-            <span
-              style={{ marginTop: "20%" }}
-              className="mt-4 text-white performance-title"
-            >
+            <span className="text-white performance-title">
               <TypeWriterEffect
                 textStyle={{
                   fontFamily: "grotesk",
@@ -48,7 +45,7 @@ export const Rating = () => {
                 {performanceItems.map((item, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center justify-center pt-20"
+                    className="flex flex-col items-center justify-center"
                   >
                     <p className="title-item text-white mx-auto w-full">
                       <TypeWriterEffect
@@ -77,12 +74,6 @@ export const Rating = () => {
             <div className="max-w-xl mx-auto text-center md:text-left">
               <h2 className="companies-title text-gray-900 pb-10  md:text-lg">
                 <TypeWriterEffect
-                  /*                 textStyle={{
-                  fontFamily: "grotesk-",
-                  fontWeight: 0,
-                  letterSpacing: "-0.03em",
-                  fontSize: "45px",
-                }} */
                   startDelay={100}
                   cursorColor="transparent"
                   text="Trusted by the World's Best Companies"

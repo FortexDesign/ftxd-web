@@ -88,28 +88,29 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
           {/* This section make posible the fixed effect */}
           {services.map((item, index) => (
             <Controller>
-              <Scene enabled={enabledLocal && enabledLocal} triggerHook={0} pin>
+              <Scene enabled={enabledLocal && enabledLocal} triggerHook={0} pin >
                 <div key={index} className="space-y-2 pb-10 pt-20 bg-white">
-                  <summary className="flex items-center w-full p-4 cursor-pointer border-t border-b border-primary">
-                    <div className=" w-full lg:text-md sm:text-base service-head">
-                      <h5 className=" numeration inline-block w-1/2 text-gray-900 lg:py-4 sm:py-1 flex-1">
+                  <summary className="flex items-center w-full py-4 cursor-pointer border-t border-b border-primary">
+                    <div className=" w-full text-xl service-head">
+                  {/*     <h5 className=" numeration inline-block w-1/2 text-gray-900 lg:py-4 sm:py-1 flex-1">
                         {item.id}
-                      </h5>
-                      <h3 className="inline-block w-1/2 pl-8 text-gray-900 lg:py-4  sm:py-1 ">
-                        <TypeWriterEffect
+                      </h5> */}
+                      <h3 className="inline-block w-1/2 text-gray-900 lg:py-4  sm:py-1 ">
+                    {/*     <TypeWriterEffect
                           startDelay={100}
                           cursorColor="transparent"
                           text={item.title}
                           typeSpeed={50}
                           scrollArea={myRef2}
-                        />
+                        /> */}
+                        {item.title}
                       </h3>
                     </div>
                   </summary>
 
                   {/* Image switched */}
                   <div className="services-container">
-                    <div className="lg:py-10 lg:pr-10 sm:p-0 my-auto flex-1 fade-in-tl">
+                    <div className="lg:py-4 lg:pr-10 sm:p-0 my-auto flex-1 fade-in-tl">
                       <img
                         alt={ImageSwitch[index].id}
                         src={ImageSwitch[index].img}
@@ -122,7 +123,7 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                         <span
                           key={ix}
                           onClick={() => handleImage(i.name, i.image, index)}
-                          className="border-b  px-4 service-head border-primary text-gray-900 py-10 numeration "
+                          className="border-b  px-4 service-head border-primary text-gray-900 py-8 numeration "
                         >
                           {i.name}
                         </span>

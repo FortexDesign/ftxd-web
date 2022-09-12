@@ -36,11 +36,20 @@ function App() {
       current == "heroFooter-true"
     ) {
       setcolorDiv("white");
-/*       setIsEnabled(false);
- */    } else {
+      /*       setIsEnabled(false);
+       */
+    } else {
       setcolorDiv("#161e34");
     }
 
+    if (current == "powerfull-true" || current == "heroFooter-true") {
+      setIsEnabled(false);
+      /*       setIsEnabled(false);
+       */
+    }else{
+      
+    }
+    console.log("🚀 ~ file: App.js ~ line 38 ~ useEffect ~ current", current);
   }, [current, colorDiv]);
 
   const Ref = useRef();
@@ -63,7 +72,6 @@ function App() {
           />
         </div>
       ) : (
-
         /* Layout component content the header and footer components and the another components in the landing page are the childs  */
         <Layout
           color={colorDiv}
@@ -72,7 +80,6 @@ function App() {
         >
           {/* Parallaz provider is a wrapper to all the react-scroll-parallax targets */}
           <ParallaxProvider>
-
             {/* Hero contain the first section of this page,this is the the slider with type text effect */}
             <Hero setCurrent={setCurrent} setcontentDiv={setcontentDiv} />
 
