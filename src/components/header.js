@@ -42,7 +42,6 @@ function Header({ isExpanded, toggleExpansion, color }) {
                 border: `0.5px solid ${color}`,
                 color: `${color}`,
               }}
-              
               href="#"
               target="_blank"
               rel="noreferrer"

@@ -25,8 +25,6 @@ export const Rating = ({ setCurrent }) => {
     setCurrent(`rating-${inViewport2?.isIntersecting}`);
   }
 
-
-
   return (
     <div className=" relative">
       <div className="fortex-container mx-auto relative rating-c">
@@ -83,6 +81,11 @@ export const Rating = ({ setCurrent }) => {
             <div className="max-w-xl mx-auto text-center md:text-left">
               <h2 className="companies-title text-gray-900 pb-10  md:text-lg">
                 <TypeWriterEffect
+                  textStyle={{
+                    width: "315px",
+                    fontSize: "30px",
+                    lineHeight: "38px",
+                  }}
                   startDelay={100}
                   cursorColor="transparent"
                   text="Trusted by the World's Best Companies"
