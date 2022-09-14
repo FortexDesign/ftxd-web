@@ -15,13 +15,13 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
   }
 
   // Verify if this element is in Viewport
-  useEffect(() => {
+/*   useEffect(() => {
     if (inViewport2?.isIntersecting == true) {
       setIsEnabled(false);
     } else {
       setIsEnabled(true);
     }
-  }, [inViewport2?.isIntersecting]);
+  }, [inViewport2?.isIntersecting]); */
 
   return (
     <div ref={Ref} className="powerfull">

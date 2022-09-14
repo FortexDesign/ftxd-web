@@ -88,15 +88,20 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
           {/* This section make posible the fixed effect */}
           {services.map((item, index) => (
             <Controller>
-              <Scene enabled={enabledLocal && enabledLocal} triggerHook={0} pin >
-                <div key={index} className="space-y-2 pb-10 pt-20 bg-white">
+              <Scene enabled={enabledLocal && enabledLocal} triggerHook={0} pin>
+                <div
+                  key={index}
+                  className={`space-y-2 pb-10 pt-20 bg-white ${
+                    isEnabled == true ? "fixed" : "services-relative "
+                  }`}
+                >
                   <summary className="flex items-center w-full py-4 cursor-pointer border-t border-b border-primary">
                     <div className=" w-full text-xl service-head">
-                  {/*     <h5 className=" numeration inline-block w-1/2 text-gray-900 lg:py-4 sm:py-1 flex-1">
+                      {/*     <h5 className=" numeration inline-block w-1/2 text-gray-900 lg:py-4 sm:py-1 flex-1">
                         {item.id}
                       </h5> */}
                       <h3 className="inline-block w-1/2 text-gray-900 lg:py-4  sm:py-1 ">
-                    {/*     <TypeWriterEffect
+                        {/*     <TypeWriterEffect
                           startDelay={100}
                           cursorColor="transparent"
                           text={item.title}

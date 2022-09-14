@@ -11,7 +11,7 @@ export const NumberService = ({ setCurrent }) => {
     setCurrent(`services-${inViewport2?.isIntersecting}`);
   }
   return (
-    <div style={{ padding: "0 10px" }}>
+    <div>
       {/* Only one number with the type write effect */}
       <span style={{ height: "400px" }} ref={Ref} className="numeration">
         <TypeWriterEffect

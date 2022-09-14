@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import brands from "../images/background/brands.png";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import TypeWriterEffect from "react-typewriter-effect";
 import { performanceItems } from "../common/utils/dummy/performance";
 import Slider from "react-slick";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
-export const Rating = () => {
+export const Rating = ({ setCurrent }) => {
   const myRef = document.querySelector(".rating-c");
   /// set slider's settings
   const settings = {
@@ -17,6 +18,14 @@ export const Rating = () => {
     autoplay: true,
     arrows: false,
   };
+  const Ref = useRef();
+
+  const inViewport2 = useIntersectionObserver(Ref, { rootMargin: "-200px" });
+  if (inViewport2?.isIntersecting === true) {
+    setCurrent(`rating-${inViewport2?.isIntersecting}`);
+  }
+
+
 
   return (
     <div className=" relative">
@@ -70,7 +79,7 @@ export const Rating = () => {
               </Slider>
             </div>
           </div>
-          <div className="p-8 md:p-12 bg-white flex flex-col justify-center">
+          <div className="p-14 md:p-12 bg-white flex flex-col justify-center">
             <div className="max-w-xl mx-auto text-center md:text-left">
               <h2 className="companies-title text-gray-900 pb-10  md:text-lg">
                 <TypeWriterEffect

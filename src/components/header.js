@@ -38,11 +38,15 @@ function Header({ isExpanded, toggleExpansion, color }) {
           <div className="text-sm lg:flex-grow"></div>
           <div className="flex ">
             <a
-              style={{ border: `0.5px solid ${color}`, color: `${color}` }}
+              style={{
+                border: `0.5px solid ${color}`,
+                color: `${color}`,
+              }}
+              
               href="#"
               target="_blank"
               rel="noreferrer"
-              className="inline-block mr-3 px-10 py-2 mt-4 text-sm leading-none  text-white hover:border-transparent border-wc hover:text-primary hover:bg-white lg:mt-0"
+              className="contact inline-block mr-3 px-10 py-2 mt-4 text-sm leading-none  text-white hover:border-transparent border-wc hover:text-primary hover:bg-white lg:mt-0"
             >
               Contact Us
             </a>
