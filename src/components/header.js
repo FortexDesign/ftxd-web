@@ -63,7 +63,7 @@ function Header({ isExpanded, toggleExpansion, color }) {
               rel="noreferrer"
               className="inline-block px-2 mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
             >
-              <BiUserCircle />
+              <BiUserCircle fontSize={22} />
             </a>
             <a
               onClick={() => toggleExpansion(true)}
@@ -71,7 +71,7 @@ function Header({ isExpanded, toggleExpansion, color }) {
               style={{ border: `0.5px solid ${color}`, color: `${color}` }}
               className="inline-block px-2  mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
             >
-              <BiMenu />
+              <BiMenu fontSize={22}  />
             </a>
           </div>
         </div>
