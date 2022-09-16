@@ -9,8 +9,8 @@ import Logo from "./Logo";
 export const MenuFull = ({ isExpanded, toggleExpansion }) => {
   return (
     <div className="fortex-container mx-auto bg-primary h-full">
-      <nav className="flex flex-wrap w-full items-center justify-between p-6 header-bg">
-        <div className=" flex w-full items-center justify-between flex-shrink-0 mr-6 text-white pb-4">
+      <nav className="flex flex-wrap w-full items-center justify-between py-6 header-bg">
+        <div className=" flex w-full items-center justify-between flex-shrink-0  text-white pb-4">
           <Logo color={"white"} />
 
           {/* Section of menu navigation */}
@@ -19,7 +19,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
               href="#"
               target="_blank"
               rel="noreferrer"
-              className="hidden lg:inline-block mr-3 px-10 py-2 mt-4 text-sm leading-none text-white border-wc hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
+              className="hidden inline-block mr-3 px-10 py-2 mt-4 text-sm leading-none text-white border-wc hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
             >
               Contact Us
             </a>
