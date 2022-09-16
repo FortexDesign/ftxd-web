@@ -4,6 +4,7 @@ import permit from "../images/background/permit2.png";
 import gpr from "../images/background/gpr2.png";
 import bore from "../images/background/ftxd_bore1.png";
 import eng from "../images/background/ftxd_engup.png";
+import dron from "../images/background/dron.png";
 import Slider from "react-slick";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { BsArrowRight } from "react-icons/bs";
@@ -14,7 +15,7 @@ import { useTypingText } from "../hooks/useTypingText";
 export const Hero = ({ setCurrent }) => {
   const [wordIndex, setWordIndex] = useState(0);
   /*   const [change, setchange] = useState({ slideIndex: 0, updateCount: 0 });
-   */ const Ref = useRef(); 
+   */ const Ref = useRef();
   const inViewport2 = useIntersectionObserver(Ref, {});
   // this function detects in which section of the page I am to configure it in the current state variable
   if (inViewport2?.isIntersecting === true) {
@@ -34,38 +35,13 @@ export const Hero = ({ setCurrent }) => {
       this.setState((state) => ({ updateCount: state.updateCount + 1 })),
     afterChange: (current) => this.setState({ activeSlide2: current }), */
   };
-  const myRef = document.querySelector(".hero");
   const customSlider = useRef();
-
-  const items = [
-    <div
-      style={{ backgroundImage: `url(${telecommunications})` }}
-      className="image w-full"
-    ></div>,
-    <div
-      style={{ backgroundImage: `url(${permit})` }}
-      className="image w-full"
-    ></div>,
-    <div
-      style={{ backgroundImage: `url(${gpr})` }}
-      className="image w-full"
-    ></div>,
-    <div
-      style={{ backgroundImage: `url(${bore})` }}
-      className="image w-full"
-    ></div>,
-
-    <div
-      style={{ backgroundImage: `url(${eng})` }}
-      className="image w-full"
-    ></div>,
-  ];
-
   const { word } = useTypingText(
     [
       "telecommunications.",
       "utility permiting.",
       "utility locating.",
+      "utility engineering.",
       "ISP engineering.",
       "surveying.",
     ],
@@ -124,6 +100,12 @@ export const Hero = ({ setCurrent }) => {
               <div className="containerC">
                 <div
                   style={{ backgroundImage: `url(${eng})` }}
+                  className="image w-full"
+                ></div>
+              </div>
+              <div className="containerC">
+                <div
+                  style={{ backgroundImage: `url(${dron})` }}
                   className="image w-full"
                 ></div>
               </div>
