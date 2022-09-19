@@ -21,8 +21,9 @@
   color: #161e34 !important;
 }
 
-.conta
-
+.contact {
+  display: block;
+}
 
 .App-header {
   background-color: #282c34;
@@ -48,32 +49,41 @@
   }
 }
 
+@media (max-width: 768px) {
+  .contact {
+    display: none !important;
+  }
+  .user {
+    display: none;
+  }
+}
+
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #e4e0e5 #ffffff;
-  }
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #e4e0e5 #ffffff;
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #e4e0e5;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #e4e0e5;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
 
-  .border-wm{
-    border: 0.5px solid rgba(255, 255, 255, 0.541) !important;
-    backdrop-filter: blur(25px) !important;;
-    padding: 4px 15px !important;;
-    font-size: 22px !important;;
-    font-family: "grotesk-roman";
-  }
+.border-wm {
+  border: 0.5px solid rgba(255, 255, 255, 0.541) !important;
+  backdrop-filter: blur(25px) !important;
+  padding: 4px 15px !important;
+  font-size: 22px !important;
+  font-family: "grotesk-roman";
+}

@@ -38,7 +38,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
               }}
               href="#"
               rel="noreferrer"
-              className="inline-block px-2 py-2 leading-none text-white border-w hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
+              className="user inline-block px-2 py-2 leading-none text-white border-w hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
             >
               <BiUserCircle fontSize={22} />
             </a>
@@ -64,7 +64,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
           <div className="text-sm lg:flex-grow"></div>
         </div> */}
       </nav>
-      <div className="menu w-full top-0 left-0 bg-primary mt-4  ">
+      <div className="menu sm:px-10 md:px-0 w-full top-0 left-0 bg-primary mt-4  ">
         <div className="border-t border-gray-400 mt-4  flex-1">
           <span className="mt-3 text-gray-400 subhead-menu">NAVIGATION</span>
           {Navigation1.map((item) => (

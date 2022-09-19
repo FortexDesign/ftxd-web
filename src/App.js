@@ -47,8 +47,6 @@ function App() {
     } else {
       setIsEnabled(false);
     }
- /*    console.log("🚀 ~ file: App.js ~ line 38 ~ useEffect ~ current", current);
-    console.log("🚀 ~ file: App.js ~ line 38 ~ useEffect ~ enabled", isEnabled); */
   }, [current, colorDiv]);
 
   const Ref = useRef();

@@ -335,6 +335,10 @@ body {
     height: 300px;
   }
 
+  .menu{
+    padding: 0 20px;
+  }
+
   .service-title{
     font-size: 60px;
     margin: 0px  !important;
