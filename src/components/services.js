@@ -67,8 +67,8 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
       <div ref={Ref} className="services">
         <div
           className="bg-white service fortex-container w-full mx-auto relative pt-10"
-          style={{ zIndex: "10" }}
-        >
+/*           style={{ zIndex: "10" }}
+ */        >
           <div className="flex flex-col">
             <span className="service-title inline-block">
               <TypeWriterEffect

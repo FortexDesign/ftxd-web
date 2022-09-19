@@ -42,17 +42,13 @@ function App() {
       setcolorDiv("#161e34");
     }
 
-    if (
-      current == "powerfull-true" ||
-      current == "rating-true" ||
-      current == "heroFooter-true"
-    ) {
-      setIsEnabled(false);
-    } else {
+    if (current == "services-true") {
       setIsEnabled(true);
+    } else {
+      setIsEnabled(false);
     }
-    console.log("🚀 ~ file: App.js ~ line 38 ~ useEffect ~ current", current);
-    console.log("🚀 ~ file: App.js ~ line 38 ~ useEffect ~ enabled", isEnabled);
+ /*    console.log("🚀 ~ file: App.js ~ line 38 ~ useEffect ~ current", current);
+    console.log("🚀 ~ file: App.js ~ line 38 ~ useEffect ~ enabled", isEnabled); */
   }, [current, colorDiv]);
 
   const Ref = useRef();
