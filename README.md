@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Technical documentation for the fortex design website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Introduction 
 
-In the project directory, you can run:
+This document contains the architecture and construction guidelines for the Fortex Design website under React.js technologies combined with the Tailwind.css library for style design, thus guaranteeing the correct interpretation of the code without ambiguities.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Recommended structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The structure defined by the developer are the folders present in the /src folder, their contents are explained in this document:   
 
-### `npm test`
+```
+├── common
+├── components  
+├── hooks 
+├── images 
+├── styles 
+├── App.jd
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### /common
 
-### `npm run build`
+The common folder contains special functions used in different sections of the project as follows:
+  
+- **/Utils**
+  
+ 
+All other functions and/or tools used by developers throughout the project are inserted here
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## /components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+"The key feature of React is component composition. Components written by different people need to work well together. It's important to us that you can add functionality to a component without causing a tidal wave of changes throughout the code base. "(React,2021)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Understanding this, the components folder is of vital importance for the structure of the project, in it are the different components present in the scenes of the application, to expand this paradigm it is recommended to read the following article
+https://es.reactjs.org/docs/design-principles.html
 
-### `npm run eject`
+Each component is of the .js type, this language is used in this project to establish better dynamics when writing the code due to its typing and advantages over other languages.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## /hooks
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In this folder you can find files with global functions, these global functions are of a special nature since they extend the characteristics of the useState , these functions are called "custom hooks"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## index.tsx
 
-## Learn More
+This file is our main file called the app.js file, import the project libraries, and create wrappers for handling states
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## App.tsx
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This file lists all the components that make up the web page, in this case each component is a section of the web page.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Variable Naming
 
-### Analyzing the Bundle Size
+This project uses the concepts of good practices suggested for optimal software development.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+In the case of naming the variables and functions, the camelCase expression is used, exemplifying we can observe the name of the following variable `getSubcategories` or `getSubcategories()` for the functions, it is important to highlight that the variables must not contain special characters or spaces, only the `_` character is allowed so `get_categories`, although this expression is not of type camelase in the project you will find this way.
 
-### Making a Progressive Web App
+In the case of class naming the expression is UpperCamelCase instantiated as `AddNewCategory`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Libraries and Frameworks
 
-### Advanced Configuration
+This project, being based on react, makes use of the libraries provided by npm or yarn, the dependencies of the project are found in the package.json file.
+   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Tailwind 
 
-### Deployment
+  - It is a set of code tools for site design, this library would offer custom classes that can be used in the className attribute of each tag.
+## Run the project in a local environment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+To run the project on the computer it is necessary to install the npm dependencies with the `npm install` command, after installing the dependencies the `npm start` command must be executed
 
-### `npm run build` fails to minify
+Done, you can now run the server and run the application in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Build Application
+
+To build the application and make it ready for deployment, you only need to run the command
+```
+npm run build
+```

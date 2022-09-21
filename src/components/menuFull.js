@@ -24,7 +24,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
               }}
               href="#"
               rel="noreferrer"
-              className="contact inline-block mr-3 px-10 py-2  text-sm leading-none text-white border-wc hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
+              className="contact inline-block mr-3 px-14 py-2  text-sm text-white border-wc hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
             >
               Contact Us
             </a>
@@ -34,11 +34,10 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
                 borderTop: `0.5px solid white`,
                 borderBottom: `0.5px solid white`,
                 fontSize: "24px !important;",
-                padding: "7px 15px !important",
               }}
               href="#"
               rel="noreferrer"
-              className="user inline-block px-2 py-2 leading-none text-white border-w hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
+              className="user inline-block py-2 text-white border-w hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
             >
               <BiUserCircle fontSize={22} />
             </a>
@@ -46,13 +45,12 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
               style={{
                 border: `0.5px solid white`,
                 fontSize: "30px !important;",
-                padding: "8px 15px !important",
               }}
               href="#"
               onClick={() => toggleExpansion(!isExpanded)}
-              className="inline-block  py-3 bg-white text-primary leading-none border-w hover:border-white"
+              className="inline-block bg-white text-primary leading-none border-w hover:border-white"
             >
-              <CgClose fontSize={22}/>
+              <CgClose fontSize={22} />
             </a>{" "}
           </div>
         </div>

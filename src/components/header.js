@@ -36,7 +36,7 @@ function Header({ isExpanded, toggleExpansion, color }) {
           } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
         >
           <div className="text-sm lg:flex-grow"></div>
-          <div className="flex ">
+          <div className="flex justify-end items-center">
             <a
               style={{
                 border: `0.5px solid ${color}`,
@@ -45,7 +45,7 @@ function Header({ isExpanded, toggleExpansion, color }) {
               href="#"
               target="_blank"
               rel="noreferrer"
-              className="contact inline-block mr-3 px-14 py-2 mt-4 text-sm leading-none  text-white hover:border-transparent border-wc hover:text-primary hover:bg-white lg:mt-0"
+              className="contact inline-block mr-3 px-14 py-2 mt-4 text-sm  text-white hover:border-transparent border-wc hover:text-primary hover:bg-white lg:mt-0"
             >
               Contact Us
             </a>
@@ -61,15 +61,19 @@ function Header({ isExpanded, toggleExpansion, color }) {
               }}
               target="_blank"
               rel="noreferrer"
-              className="inline-block px-2 mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
+              className="inline-block user mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
             >
               <BiUserCircle fontSize={22} />
             </a>
             <a
               onClick={() => toggleExpansion(true)}
               href="#"
-              style={{ border: `0.5px solid ${color}`, color: `${color}` }}
-              className="inline-block px-2  mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
+              style={{
+                border: `0.5px solid ${color}`,
+                color: `${color}`,
+                padding: "8px 15px !important",
+              }}
+              className="inline-block mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
             >
               <BiMenu fontSize={22} />
             </a>

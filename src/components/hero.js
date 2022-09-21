@@ -36,6 +36,8 @@ export const Hero = ({ setCurrent }) => {
     afterChange: (current) => this.setState({ activeSlide2: current }), */
   };
   const customSlider = useRef();
+
+  /* Words for typing */
   const { word } = useTypingText(
     [
       "telecommunications.",
@@ -72,6 +74,8 @@ export const Hero = ({ setCurrent }) => {
               ref={(slider) => (customSlider.current = slider)}
               {...settings}
             >
+
+              {/*Items for the alice-carousel slider  */}
               <div className="containerC">
                 <div
                   style={{ backgroundImage: `url(${telecommunications})` }}
