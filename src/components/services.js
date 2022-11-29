@@ -4,35 +4,45 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { services } from "../common/utils/dummy/services";
 import TypeWriterEffect from "react-typewriter-effect";
 import { ServicesCollapse } from "./ServicesCollapse";
-
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { fontFamily } from "@mui/system";
+import { AiFillCaretRight } from "react-icons/ai";
+import OspImage from "../images/background/TelecommunicationsEngineering/OSPEngineering.png";
+import PermitePackagePImage from "../images/background/PermittingAndCompliance/PermitPackagePrep.png";
+import DataCleaning from "../images/background/GISServices/DataCleaning.png";
+import RecordDigitizationImage from "../images/background/CADServices/RecordDigitization.png";
+import GroundPenetratingImage from "../images/background/FieldSurveyingUtilityLocating/GroundPenetratingRadar.png";
 export const Services = ({ setCurrent, isEnabled, current }) => {
   // State to set the image in section viewport
 
   const [ImageSwitch, setImageSwitch] = useState([
     {
       id: "",
-      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+      img: OspImage,
     },
     {
       id: "",
-      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+      img: PermitePackagePImage,
     },
     {
       id: "",
-      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+      img: DataCleaning,
     },
     {
       id: "",
-      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+      img: RecordDigitizationImage,
     },
     {
       id: "",
-      img: "https://cdn.pixabay.com/photo/2015/05/11/12/30/circuit-762427_960_720.jpg",
+      img: GroundPenetratingImage,
     },
   ]);
 
   //
   const [enabledLocal, setEnabledLocal] = useState(true);
+  const [showRightArrow, setShowRightArrow] = useState(false);
+  const [nameItem, setNameItem] = useState("");
+  const [subItemIndex, setSubItemIndex] = useState(0);
 
   // Set the references
   const myRef2 = document.querySelector(".service-title");
@@ -51,31 +61,34 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
     setEnabledLocal(isEnabled);
   }, [isEnabled]);
 
-  const handleImage = (id, img, index) => {
+  const handleItemHover = (id, img, index, indexImage) => {
+    setSubItemIndex(indexImage);
+    setNameItem(id);
+    setShowRightArrow(true);
     ImageSwitch[index].img = img;
-    setImageSwitch((prevState) => {
-      return [...prevState, ImageSwitch];
-    });
-    console.log(
-      "🚀 ~ file: services.js ~ line 57 ~ handleImage ~ ImageSwitch",
-      ImageSwitch
-    );
+    setImageSwitch(ImageSwitch);
   };
 
   return (
     <>
-      <div ref={Ref} className="services">
+      <div
+        ref={Ref}
+        className="services"
+      >
         <div
           className="bg-white service fortex-container w-full mx-auto relative pt-10"
-/*           style={{ zIndex: "10" }}
- */        >
+          /*           style={{ zIndex: "10" }}
+           */
+        >
           <div className="flex flex-col">
             <span className="service-title inline-block">
               <TypeWriterEffect
                 textStyle={{
-                  fontWeight: 500,
+                  fontWeight: "bolder",
                   fontSize: " 80px",
                   margin: "40px 0 40px 80px",
+                  color: "#141c32",
+                  marginLeft: "0px",
                 }}
                 startDelay={100}
                 cursorColor="transparent"
@@ -88,28 +101,18 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
           {/* This section make posible the fixed effect */}
           {services.map((item, index) => (
             <Controller>
-              <Scene enabled={enabledLocal && enabledLocal} triggerHook={0} pin>
+              <Scene
+                enabled={enabledLocal && enabledLocal}
+                triggerHook={0}
+                pin
+              >
                 <div
                   key={index}
-                  className={`space-y-2 pb-10 pt-20 bg-white ${
-                    isEnabled == true ? "fixed" : "services-relative "
-                  }`}
+                  className={`space-y-2 pb-10 pt-20 bg-white ${isEnabled == true ? "fixed" : "services-relative "}`}
                 >
                   <summary className="flex items-center w-full py-4 cursor-pointer border-t border-b border-primary">
                     <div className=" w-full text-xl service-head">
-                      {/*     <h5 className=" numeration inline-block w-1/2 text-gray-900 lg:py-4 sm:py-1 flex-1">
-                        {item.id}
-                      </h5> */}
-                      <h3 className="inline-block w-1/2 text-gray-900 lg:py-4  sm:py-1 ">
-                        {/*     <TypeWriterEffect
-                          startDelay={100}
-                          cursorColor="transparent"
-                          text={item.title}
-                          typeSpeed={50}
-                          scrollArea={myRef2}
-                        /> */}
-                        {item.title}
-                      </h3>
+                      <h3 className="inline-block w-1/2 text-gray-900 lg:py-4  sm:py-1 ">{item.title}</h3>
                     </div>
                   </summary>
 
@@ -121,19 +124,46 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                         src={ImageSwitch[index].img}
                       />
                     </div>
-                    {/* This section contain all the item inside one service and when the span is clicked change the image in the service */}
 
-                    <div className="flex flex-col flex-1 font-medium justify-center cursor-pointer">
+                    <List
+                      className="flex flex-col flex-1 "
+                      sx={{
+                        "& .MuiListItem-root": {
+                          borderBottomColor: "#141c32",
+                          borderBottomWidth: "thin",
+                          paddingBottom: "16px",
+                          paddingTop: "20px",
+                        },
+                        paddingTop: "0px",
+                      }}
+                    >
                       {item.subservices.map((i, ix) => (
-                        <span
-                          key={ix}
-                          onClick={() => handleImage(i.name, i.image, index)}
-                          className="border-b  px-4 service-head border-primary text-gray-900 py-8 numeration "
+                        <ListItem
+                          sx={{
+                            "& .MuiListItemIcon-root": {
+                              minWidth: "30px",
+                              color: "#141c32",
+                            },
+                          }}
                         >
-                          {i.name}
-                        </span>
+                          <ListItemButton
+                            onMouseEnter={() => handleItemHover(i.name, i.image, index, ix)}
+                            onMouseLeave={() => setShowRightArrow(false)}
+                          >
+                            <ListItemIcon>{showRightArrow && nameItem === i.name && <AiFillCaretRight></AiFillCaretRight>}</ListItemIcon>
+                            <ListItemText
+                              primary={i.name}
+                              sx={{
+                                "& .MuiTypography-root": {
+                                  fontFamily: "grotesk",
+                                  color: "#141c32",
+                                },
+                              }}
+                            />
+                          </ListItemButton>
+                        </ListItem>
                       ))}
-                    </div>
+                    </List>
                   </div>
                 </div>
               </Scene>

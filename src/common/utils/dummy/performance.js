@@ -1,16 +1,23 @@
 /* Items For powerfull section */
+import Antenna from "../../../images/background/antena.png"
+import Nut from "../../../images/background/nut.png"
+import World from "../../../images/background/world.png"
+
 export const performanceItems = [
   {
-    title: "470,000+",
-    description: "American homes connected in our FTTH designs.",
+    image:World,
+    title: ">470,000 homes",
+    description: "served in our FTTH designs",
   },
   {
-    title: "500+ miles",
-    description: "of permits approved with a perfect safety record.",
+    image:Nut,
+    title: ">500 miles",
+    description: "of redline data analyzed & drafted",
   },
   {
-    title: "500+ miles",
+    image:Antenna,
+    title: ">500 miles",
     description:
-      "of redlines drafted, processing thousands of pages of hand-written and GIS data.",
+      "of permits completed with a perfect safety record",
   },
 ];

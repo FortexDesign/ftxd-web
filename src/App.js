@@ -30,11 +30,7 @@ function App() {
 
   //according to the value of the current colors are assigned to the div
   useEffect(() => {
-    if (
-      current == "competition-true" ||
-      current == "hero-true" ||
-      current == "heroFooter-true"
-    ) {
+    if (current == "competition-true" || current == "hero-true" || current == "heroFooter-true") {
       setcolorDiv("white");
       /*       setIsEnabled(false);
        */
@@ -78,7 +74,10 @@ function App() {
           {/* Parallaz provider is a wrapper to all the react-scroll-parallax targets */}
           <ParallaxProvider>
             {/* Hero contain the first section of this page,this is the the slider with type text effect */}
-            <Hero setCurrent={setCurrent} setcontentDiv={setcontentDiv} />
+            <Hero
+              setCurrent={setCurrent}
+              setcontentDiv={setcontentDiv}
+            />
 
             {/* This section contain a blue background  */}
             <Competition
@@ -112,9 +111,15 @@ function App() {
             />
 
             {/* This section contains the companies Fortex has worked with and some statistics in a slider*/}
-            <Rating setCurrent={setCurrent} setcontentDiv={setcontentDiv} />
+            <Rating
+              setCurrent={setCurrent}
+              setcontentDiv={setcontentDiv}
+            />
 
-            <HeroFooter setCurrent={setCurrent} setcontentDiv={setcontentDiv} />
+            <HeroFooter
+              setCurrent={setCurrent}
+              setcontentDiv={setcontentDiv}
+            />
           </ParallaxProvider>
         </Layout>
       )}
