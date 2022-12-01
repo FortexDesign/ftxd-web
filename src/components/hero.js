@@ -8,11 +8,17 @@ import dron from "../images/background/dron.png";
 import Slider from "react-slick";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { BsArrowRight } from "react-icons/bs";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { useTheme } from "@mui/material/styles";
 
 import { useTypingText } from "../hooks/useTypingText";
+import { Container } from "@mui/system";
 
 export const Hero = ({ setCurrent }) => {
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
   const [wordIndex, setWordIndex] = useState(0);
   /*   const [change, setchange] = useState({ slideIndex: 0, updateCount: 0 });
    */ const Ref = useRef();
@@ -38,43 +44,42 @@ export const Hero = ({ setCurrent }) => {
   const customSlider = useRef();
 
   /* Words for typing */
-  const { word } = useTypingText(
-    [
-      "telecommunications.",
-      "utility permiting.",
-      "utility locating.",
-      "utility engineering.",
-      "ISP engineering.",
-      "surveying.",
-    ],
-    70,
-    10,
-    wordIndex,
-    setWordIndex
-  );
+  const { word } = useTypingText(["telecommunications.", "utility permiting.", "utility locating.", "utility engineering.", "ISP engineering.", "surveying."], 70, 10, wordIndex, setWordIndex);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     customSlider.current.slickGoTo(wordIndex);
-  }, [wordIndex]);
+  }, [wordIndex]); */
 
   return (
-    <div ref={Ref} className="hero">
-      <div className="bg-primary relative h-auto pt-20 ">
-        <aside className="fortex-container mx-auto bg-primary w-full">
-          <div className="relative content-slide">
-            {/*   <AliceCarousel
-              autoPlay  
-            
-              animationDuration={5000}
-              disableDotsControls
-              disableButtonsControls
-              items={items}
-            /> */}
+    <Box
+      sx={{ flexGrow: 1 }}
+      ref={Ref}
+      className="hero"
+    >
+      <Grid
+        sx={{ justifyContent: "center", paddingTop: upToXl ? "88px" : "80px", backgroundColor: "#141c32", position: "relative" }}
+        container
+        spacing={{ xs: 0, md: 0 }}
+        columns={{ xs: 2, sm: 12, md: 12, lg: 12 }}
+      >
+        <Grid
+          item
+          xs={2}
+          sm={12}
+          md={12}
+          lg={upToXl ? 8 : 12}
+        >
+          <Container
+            sx={{
+              paddingLeft: downToMdSize ? "0px" : "24px",
+              paddingRight: downToMdSize ? "0px" : "24px",
+            }}
+            maxWidth={upToXl ? "xl" : "lg"}
+          >
             <Slider
               ref={(slider) => (customSlider.current = slider)}
               {...settings}
             >
-
               {/*Items for the alice-carousel slider  */}
               <div className="containerC">
                 <div
@@ -114,22 +119,22 @@ export const Hero = ({ setCurrent }) => {
                 ></div>
               </div>
             </Slider>
-            <div className="h-full text-type top-0 flex flex-col justify-center absolute   ">
-              <span className="ml-10 hero-title font-semibold text-white">
-                We design the blueprints for the future of {word}
-              </span>
+          </Container>
+          <Container maxWidth={upToXl ? "xl" : "lg"}>
+            <Box sx={{ position: "absolute", display: "flex", justifyContent: "center", flexDirection: "column", top: "40px", height: "100%", width:downToMdSize?"345px":"545px" }}>
+              <span className="ml-4 hero-title font-semibold text-white">We design the blueprints for the future of {word}</span>
               <a
                 style={{ width: "202px" }}
-                href="#"
-                className="flex justify-center ml-10 items-center  py-2 mt-14 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none focus:ring focus:ring-yellow-400"
+                href="_blank"
+                className="flex justify-center ml-4 items-center  py-2 mt-14 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none focus:ring focus:ring-yellow-400"
               >
                 <span>Get started</span>
                 <BsArrowRight className="text-white hover:text-primary ml-2 w-auto mr-0" />
               </a>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
+            </Box>
+          </Container>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };

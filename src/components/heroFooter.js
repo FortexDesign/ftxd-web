@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from "react"
-import { BsArrowRight } from "react-icons/bs"
-import useIntersectionObserver from "../hooks/useIntersectionObserver"
+import React, { useEffect, useRef, useState } from "react";
+import { BsArrowRight } from "react-icons/bs";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { Box } from "@mui/material";
 
 export const HeroFooter = ({ setCurrent }) => {
-  const Ref = useRef()
-  const [isHover, setisHover] = useState(false)
+  const Ref = useRef();
+  const [isHover, setisHover] = useState(false);
 
-  
   // this function detects in which section of the page I am to configure it in the current state variable
-  const inViewport2 = useIntersectionObserver(Ref, {})
+  const inViewport2 = useIntersectionObserver(Ref, {});
   if (inViewport2?.isIntersecting === true) {
-    setCurrent(`heroFooter-${inViewport2?.isIntersecting}`)
+    setCurrent(`heroFooter-${inViewport2?.isIntersecting}`);
   }
 
-
   return (
+
     <div ref={Ref} className="heroFotter">
       <div className="bg-primaryYankee sm:px-10 lg:px-0 ">
         <aside className="overflow-hidden flex flex-col fortex-container mx-auto w-full py-10">
@@ -40,5 +40,5 @@ export const HeroFooter = ({ setCurrent }) => {
         </aside>
       </div>
     </div>
-  )
-}
+  );
+};

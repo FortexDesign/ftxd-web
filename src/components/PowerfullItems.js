@@ -10,6 +10,7 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
 
   // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, {});
+
   if (inViewport2?.isIntersecting === true) {
     setCurrent(`powerfull-${inViewport2?.isIntersecting}`);
   }

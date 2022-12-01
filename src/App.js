@@ -30,7 +30,7 @@ function App() {
 
   //according to the value of the current colors are assigned to the div
   useEffect(() => {
-    if (current == "competition-true" || current == "hero-true" || current == "heroFooter-true") {
+    if (current === "competition-true" || current === "hero-true" || current === "heroFooter-true") {
       setcolorDiv("white");
       /*       setIsEnabled(false);
        */
@@ -38,7 +38,7 @@ function App() {
       setcolorDiv("#161e34");
     }
 
-    if (current == "services-true") {
+    if (current === "services-true") {
       setIsEnabled(true);
     } else {
       setIsEnabled(false);
@@ -49,9 +49,11 @@ function App() {
 
   // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, {});
-  if (inViewport2?.isIntersecting == true) {
+  if (inViewport2?.isIntersecting === true) {
     setCurrent(`service-${inViewport2?.isIntersecting}`);
   }
+
+  console.log("current***", current);
 
   return (
     <>
@@ -72,7 +74,7 @@ function App() {
           toggleExpansion={toggleExpansion}
         >
           {/* Parallaz provider is a wrapper to all the react-scroll-parallax targets */}
-          <ParallaxProvider>
+          <ParallaxProvider >
             {/* Hero contain the first section of this page,this is the the slider with type text effect */}
             <Hero
               setCurrent={setCurrent}
