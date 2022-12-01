@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import HeroImg from "../images/background/Layer3.png";
+import HeroImg from "../images/background/Layer3.svg";
 import { BsArrowRight } from "react-icons/bs";
 import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
@@ -16,7 +16,10 @@ export const Competition = ({ setCurrent }) => {
   }
 
   return (
-    <div ref={Ref} className="competition">
+    <div
+      ref={Ref}
+      className="competition"
+    >
       <div className="bg-secondary w-full py-5 sm:px-10 lg:px-0   ">
         <div className="fortex-container w-full mx-auto mt-14">
           <span
@@ -46,19 +49,15 @@ export const Competition = ({ setCurrent }) => {
                     }}
                     startDelay={100}
                     cursorColor="transparent"
-                    text="Gain an edge over your competition"
+                    text="Beyond Turnkey Engineering"
                     typeSpeed={50}
                     scrollArea={myRef}
                   />
                 </h2>
                 <p class="text-gray-300 md:mt-4 md:block">
-                  We believe well-communicated information is the lifeblood of
-                  every organization. Beyond engineering networks, or crafting
-                  meticulously compliant permits - We build end-to - end
-                  technology - Talent solutions to collect, process, design, and
-                  communicate rich engineering data. By combining automated
-                  workflows and nearshore engineers, we are able to deliver
-                  value at an unparalleled cost and scale.
+                  We believe well-communicated information is the lifeblood of every organization. Beyond engineering networks, performing field surveys, or crafting meticulously compliant permits: we
+                  build end-to-end technology-talent solutions to collect, process, design, and communicate rich engineering data. For the past decade, we have leveraged CAD-GIS automation and
+                  nearshore engineering talent to deliver value at an unparalleled cost and scale.
                 </p>
                 <div className="mt-4 md:mt-8">
                   <a
