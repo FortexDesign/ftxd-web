@@ -33,7 +33,7 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
       >
         <div
           style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
-          className="fortex-container powerfull w-full mx-auto"
+          className=" powerfull w-full mx-auto"
         >
           <div className="max-w-screen-xl py-16 ">
             <div className="flex flex-col">
