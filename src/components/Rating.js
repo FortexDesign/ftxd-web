@@ -9,6 +9,7 @@ import { Grid, Box, Stack, useMediaQuery } from "@mui/material";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
 import { isFirefox } from "react-device-detect";
+import { useEffect } from "react";
 
 export const Rating = ({ setCurrent }) => {
   const theme = useTheme();
@@ -17,8 +18,6 @@ export const Rating = ({ setCurrent }) => {
   const betweenMdLg = useMediaQuery(theme.breakpoints.between('md', 'lg')) */
   const betweenMdXl = useMediaQuery(theme.breakpoints.between("md", "xl"));
   const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
-
-  console.log("betweenMdXl", betweenMdXl);
 
   const myRef = document.querySelector(".rating-c");
   /// set slider's settings
@@ -35,9 +34,11 @@ export const Rating = ({ setCurrent }) => {
 
   const inViewport2 = useIntersectionObserver(Ref, {});
 
-  if (inViewport2?.isIntersecting === true) {
-    setCurrent(`rating-${inViewport2?.isIntersecting}`);
-  }
+  useEffect(() => {
+    if (inViewport2?.isIntersecting === true) {
+      setCurrent(`rating-${inViewport2?.isIntersecting}`);
+    }
+  }, [inViewport2?.isIntersecting, setCurrent]);
 
   const SliderRating = styled(Stack)(({ theme }) => ({
     backgroundColor: "#0f51e4",
@@ -105,7 +106,7 @@ export const Rating = ({ setCurrent }) => {
                     ></img>
                   </Grid>
 
-                  <p
+                  <div
                     className="title-item text-white"
                     style={{ marginTop: "30px" }}
                   >
@@ -122,7 +123,7 @@ export const Rating = ({ setCurrent }) => {
                       typeSpeed={50}
                       scrollArea={myRef}
                     />
-                  </p>
+                  </div>
                   <p
                     style={{ fontSize: betweenMdXl ? "36px" : "30px" }}
                     className="mt-6 text-white"
@@ -157,9 +158,10 @@ export const Rating = ({ setCurrent }) => {
                 scrollArea={myRef}
               />
             </h2>
-            <p className="border-b border-primary" style={{marginTop:downToMdSize?"20px":"0px"}
-
-            }></p>
+            <p
+              className="border-b border-primary"
+              style={{ marginTop: downToMdSize ? "20px" : "0px" }}
+            ></p>
             <Grid>
               <img
                 src={brands}

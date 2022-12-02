@@ -2,8 +2,13 @@ import React, { useEffect, useRef } from "react";
 import { PowerfullItems as items } from "../common/utils/dummy/PowerfullItems";
 import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+
   const myRef = document.querySelector(".powerfull");
 
   const Ref = useRef();
@@ -11,26 +16,25 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
   // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, {});
 
-  if (inViewport2?.isIntersecting === true) {
-    setCurrent(`powerfull-${inViewport2?.isIntersecting}`);
-  }
-
-  // Verify if this element is in Viewport
-/*   useEffect(() => {
-    if (inViewport2?.isIntersecting == true) {
-      setIsEnabled(false);
-    } else {
-      setIsEnabled(true);
+  useEffect(() => {
+    if (inViewport2?.isIntersecting === true) {
+      setCurrent(`powerfull-${inViewport2?.isIntersecting}`);
     }
-  }, [inViewport2?.isIntersecting]); */
+  }, [inViewport2?.isIntersecting, setCurrent]);
 
   return (
-    <div ref={Ref} className="powerfull">
+    <div
+      ref={Ref}
+      className="powerfull"
+    >
       <section
         style={{ zIndex: "1000" }}
         className="text-primary bg-white power "
       >
-        <div className="fortex-container powerfull w-full mx-auto">
+        <div
+          style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
+          className="fortex-container powerfull w-full mx-auto"
+        >
           <div className="max-w-screen-xl py-16 ">
             <div className="flex flex-col">
               <span className="numeration">03/</span>
@@ -57,10 +61,13 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
             {/* Powerfull items from dummy   */}
             <div className="grid grid-cols-1 gap-2 md:gap-12 md:mt-16 md:grid-cols-2 lg:grid-cols-4">
               {items.map((item, index) => (
-                <div key={index} className="flex flex-col items-start">
+                <div
+                  key={index}
+                  className="flex flex-col items-start"
+                >
                   <span className="head-item">{item.id}</span>
                   <div className="">
-                    <p className="title-item">
+                    <div className="title-item">
                       <TypeWriterEffect
                         textStyle={{
                           fontFamily: "grotesk",
@@ -73,9 +80,14 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
                         typeSpeed={50}
                         scrollArea={myRef}
                       />
-                    </p>
+                    </div>
                     {item.descs.map((item) => (
-                      <p className="mt-3 text-sm text-primary">{item}</p>
+                      <p
+                        key={item}
+                        className="mt-3 text-sm text-primary"
+                      >
+                        {item}
+                      </p>
                     ))}
                   </div>
                 </div>

@@ -4,7 +4,7 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { services } from "../common/utils/dummy/services";
 import TypeWriterEffect from "react-typewriter-effect";
 import { ServicesCollapse } from "./ServicesCollapse";
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, useMediaQuery } from "@mui/material";
 import { fontFamily } from "@mui/system";
 import { AiFillCaretRight } from "react-icons/ai";
 import OspImage from "../images/background/TelecommunicationsEngineering/OSPEngineering.png";
@@ -12,8 +12,13 @@ import PermitePackagePImage from "../images/background/PermittingAndCompliance/P
 import DataCleaning from "../images/background/GISServices/DataCleaning.png";
 import RecordDigitizationImage from "../images/background/CADServices/RecordDigitization.png";
 import GroundPenetratingImage from "../images/background/FieldSurveyingUtilityLocating/GroundPenetratingRadar.png";
+import { useTheme } from "@mui/material/styles";
 export const Services = ({ setCurrent, isEnabled, current }) => {
   // State to set the image in section viewport
+
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
 
   const [ImageSwitch, setImageSwitch] = useState([
     {
@@ -76,7 +81,8 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
         className="services"
       >
         <div
-          className="bg-white service fortex-container w-full mx-auto relative pt-10"
+          style={{ zIndex: "10", maxWidth: upToXl ? "1477px" : "1200px" }}
+          className="bg-white service  w-full mx-auto relative pt-10"
           /*           style={{ zIndex: "10" }}
            */
         >
@@ -100,16 +106,13 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
 
           {/* This section make posible the fixed effect */}
           {services.map((item, index) => (
-            <Controller>
+            <Controller key={index}>
               <Scene
                 enabled={enabledLocal && enabledLocal}
                 triggerHook={0}
                 pin
               >
-                <div
-                  key={index}
-                  className={`space-y-2 pb-10 pt-20 bg-white ${isEnabled == true ? "fixed" : "services-relative "}`}
-                >
+                <div className={`space-y-2 pb-10 pt-20 bg-white ${isEnabled === true ? "fixed" : "services-relative "}`}>
                   <summary className="flex items-center w-full py-4 cursor-pointer border-t border-b border-primary">
                     <div className=" w-full text-xl service-head">
                       <h3 className="inline-block w-1/2 text-gray-900 lg:py-4  sm:py-1 ">{item.title}</h3>
@@ -139,6 +142,7 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                     >
                       {item.subservices.map((i, ix) => (
                         <ListItem
+                          key={ix}
                           sx={{
                             "& .MuiListItemIcon-root": {
                               minWidth: "30px",

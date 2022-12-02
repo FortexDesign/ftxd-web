@@ -18,7 +18,13 @@ import { MenuFull } from "./components/menuFull";
 import { Performance } from "./components/Statics";
 import { NumberService } from "./components/NumberService";
 
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
+
 function App() {
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+
   //  State to expanded menu
   const [isExpanded, toggleExpansion] = useState(false);
   // States to observe the current container
@@ -74,7 +80,7 @@ function App() {
           toggleExpansion={toggleExpansion}
         >
           {/* Parallaz provider is a wrapper to all the react-scroll-parallax targets */}
-          <ParallaxProvider >
+          <ParallaxProvider>
             {/* Hero contain the first section of this page,this is the the slider with type text effect */}
             <Hero
               setCurrent={setCurrent}
@@ -88,13 +94,16 @@ function App() {
             />
 
             {/* The services section contains the services offered by fortex to the community in general, here you can find the effect of superimposing each service on one */}
-            <div className="bg-white  fortex-container w-full mx-auto relative pt-10">
+            <div
+              style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
+              className="bg-white   w-full mx-auto relative pt-10"
+            >
               <div className="service-number">
                 <NumberService setCurrent={setCurrent} />
               </div>
               <div
-                className="bg-white services  fortex-container w-full mx-auto relative pt-10"
-                style={{ zIndex: "10" }}
+                className="bg-white services  w-full mx-auto relative pt-10"
+                style={{ zIndex: "10", maxWidth: upToXl ? "1477px" : "1200px" }}
               >
                 <Services
                   current={current}

@@ -16,8 +16,8 @@ export const ServicesCollapse = () => {
       </div>
 
       {services.map((item) => (
-        <div class="space-y-4">
-          <details class="group">
+        <div className="space-y-4" key={item.id}>
+          <details className="group">
             <summary className="flex items-center justify-between w-full py-4 cursor-pointer border-t  border-primary">
               <div className="flex w-full items-center  lg:text-2xl sm:text-base service-head">
                 <h5 className=" text-gray-900 lg:py-4 sm:py-1 text-start w-52 ">
@@ -32,7 +32,7 @@ export const ServicesCollapse = () => {
               </div>
             </summary>
 
-            <p className="services-container">
+            <div className="services-container">
               {/* This section contain all the item inside one service and when the span is clicked change the image in the service */}
               <div className="flex flex-col flex-1 font-medium justify-center cursor-pointer">
                 {item.subservices.map((i, ix) => (
@@ -47,7 +47,7 @@ export const ServicesCollapse = () => {
                   </span>
                 ))}
               </div>
-            </p>
+            </div>
           </details>
         </div>
       ))}

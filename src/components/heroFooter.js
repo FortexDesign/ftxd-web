@@ -9,9 +9,14 @@ export const HeroFooter = ({ setCurrent }) => {
 
   // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, {});
-  if (inViewport2?.isIntersecting === true) {
-    setCurrent(`heroFooter-${inViewport2?.isIntersecting}`);
-  }
+ 
+
+  useEffect(() => {
+    if (inViewport2?.isIntersecting === true) {
+      setCurrent(`heroFooter-${inViewport2?.isIntersecting}`);
+    }
+  }, [inViewport2?.isIntersecting, setCurrent])
+  
 
   return (
 
