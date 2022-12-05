@@ -4,7 +4,7 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { services } from "../common/utils/dummy/services";
 import TypeWriterEffect from "react-typewriter-effect";
 import { ServicesCollapse } from "./ServicesCollapse";
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, useMediaQuery } from "@mui/material";
 import { fontFamily } from "@mui/system";
 import { AiFillCaretRight } from "react-icons/ai";
 import OspImage from "../images/background/TelecommunicationsEngineering/OSPEngineering.png";
@@ -12,8 +12,23 @@ import PermitePackagePImage from "../images/background/PermittingAndCompliance/P
 import DataCleaning from "../images/background/GISServices/DataCleaning.png";
 import RecordDigitizationImage from "../images/background/CADServices/RecordDigitization.png";
 import GroundPenetratingImage from "../images/background/FieldSurveyingUtilityLocating/GroundPenetratingRadar.png";
+import { useTheme } from "@mui/material/styles";
+import Slider from "react-slick";
+import { Grid } from "@mui/material";
 export const Services = ({ setCurrent, isEnabled, current }) => {
   // State to set the image in section viewport
+  const settings = {
+    dots: false,
+    infinite: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+    vertical: true,
+  };
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
 
   const [ImageSwitch, setImageSwitch] = useState([
     {
@@ -76,7 +91,8 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
         className="services"
       >
         <div
-          className="bg-white service fortex-container w-full mx-auto relative pt-10"
+          style={{ zIndex: "10", maxWidth: upToXl ? "1477px" : "1200px" }}
+          className="bg-white service  w-full mx-auto relative pt-10"
           /*           style={{ zIndex: "10" }}
            */
         >
@@ -100,16 +116,13 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
 
           {/* This section make posible the fixed effect */}
           {services.map((item, index) => (
-            <Controller>
+            <Controller key={index}>
               <Scene
                 enabled={enabledLocal && enabledLocal}
                 triggerHook={0}
                 pin
               >
-                <div
-                  key={index}
-                  className={`space-y-2 pb-10 pt-20 bg-white ${isEnabled == true ? "fixed" : "services-relative "}`}
-                >
+                <div className={`space-y-2 pb-10 pt-20 bg-white ${isEnabled === true ? "fixed" : "services-relative "}`}>
                   <summary className="flex items-center w-full py-4 cursor-pointer border-t border-b border-primary">
                     <div className=" w-full text-xl service-head">
                       <h3 className="inline-block w-1/2 text-gray-900 lg:py-4  sm:py-1 ">{item.title}</h3>
@@ -118,52 +131,90 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
 
                   {/* Image switched */}
                   <div className="services-container">
-                    <div className="lg:py-4 lg:pr-10 sm:p-0 my-auto flex-1 fade-in-tl">
+                    {/* <div className="lg:py-4 lg:pr-10 sm:p-0 my-auto flex-1 fade-in-tl">
                       <img
                         alt={ImageSwitch[index].id}
                         src={ImageSwitch[index].img}
                       />
-                    </div>
-
-                    <List
-                      className="flex flex-col flex-1 "
-                      sx={{
-                        "& .MuiListItem-root": {
-                          borderBottomColor: "#141c32",
-                          borderBottomWidth: "thin",
-                          paddingBottom: "16px",
-                          paddingTop: "20px",
-                        },
-                        paddingTop: "0px",
-                      }}
+                    </div> */}
+                    <Grid
+                      container
+                      spacing={{ xs: 2, sm: 2, md: 5, lg: 5 }}
+                      columns={{ xs: 2, sm: 12, md: 12, lg: 12 }}
                     >
-                      {item.subservices.map((i, ix) => (
-                        <ListItem
+                      <Grid
+                        item
+                        xs={2}
+                        sm={6}
+                        md={6}
+                        lg={6}
+                        marginTop="20px"
+                      >
+                        {showRightArrow ? (
+                          <img
+                            alt={ImageSwitch[index].id}
+                            src={ImageSwitch[index].img}
+                          />
+                        ) : (
+                          <Slider {...settings}>
+                            {item.subservices.map((i, ix) => (
+                              <img
+                                key={ix}
+                                alt={i.name}
+                                src={i.image}
+                              />
+                            ))}
+                          </Slider>
+                        )}
+                      </Grid>
+                      <Grid
+                        item
+                        xs={2}
+                        sm={6}
+                        md={6}
+                        lg={6}
+                      >
+                        <List
+                          className=""
                           sx={{
-                            "& .MuiListItemIcon-root": {
-                              minWidth: "30px",
-                              color: "#141c32",
+                            "& .MuiListItem-root": {
+                              borderBottomColor: "#141c32",
+                              borderBottomWidth: "thin",
+                              paddingBottom: "16px",
+                              paddingTop: "20px",
                             },
+                            paddingTop: "0px",
                           }}
                         >
-                          <ListItemButton
-                            onMouseEnter={() => handleItemHover(i.name, i.image, index, ix)}
-                            onMouseLeave={() => setShowRightArrow(false)}
-                          >
-                            <ListItemIcon>{showRightArrow && nameItem === i.name && <AiFillCaretRight></AiFillCaretRight>}</ListItemIcon>
-                            <ListItemText
-                              primary={i.name}
+                          {item.subservices.map((i, ix) => (
+                            <ListItem
+                              key={ix}
                               sx={{
-                                "& .MuiTypography-root": {
-                                  fontFamily: "grotesk",
+                                "& .MuiListItemIcon-root": {
+                                  minWidth: "0px",
                                   color: "#141c32",
                                 },
                               }}
-                            />
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
-                    </List>
+                              onMouseEnter={() => handleItemHover(i.name, i.image, index, ix)}
+                              onMouseLeave={() => setShowRightArrow(false)}
+                            >
+                              <ListItemButton>
+                                <ListItemIcon>{showRightArrow && nameItem === i.name && <AiFillCaretRight></AiFillCaretRight>}</ListItemIcon>
+                                <ListItemText
+                                  primary={i.name}
+                                  sx={{
+                                    "& .MuiTypography-root": {
+                                      fontFamily: "grotesk",
+                                      color: "#141c32",
+                                    },
+                                  }}
+                                />
+                              </ListItemButton>
+                            </ListItem>
+                          ))}
+                        </List>
+                      </Grid>
+                    </Grid>
                   </div>
                 </div>
               </Scene>

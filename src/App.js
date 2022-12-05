@@ -18,7 +18,13 @@ import { MenuFull } from "./components/menuFull";
 import { Performance } from "./components/Statics";
 import { NumberService } from "./components/NumberService";
 
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
+
 function App() {
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+
   //  State to expanded menu
   const [isExpanded, toggleExpansion] = useState(false);
   // States to observe the current container
@@ -30,7 +36,7 @@ function App() {
 
   //according to the value of the current colors are assigned to the div
   useEffect(() => {
-    if (current == "competition-true" || current == "hero-true" || current == "heroFooter-true") {
+    if (current === "competition-true" || current === "hero-true" /* || current === "heroFooter-true" */) {
       setcolorDiv("white");
       /*       setIsEnabled(false);
        */
@@ -38,7 +44,7 @@ function App() {
       setcolorDiv("#161e34");
     }
 
-    if (current == "services-true") {
+    if (current === "services-true") {
       setIsEnabled(true);
     } else {
       setIsEnabled(false);
@@ -49,9 +55,11 @@ function App() {
 
   // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, {});
-  if (inViewport2?.isIntersecting == true) {
+  if (inViewport2?.isIntersecting === true) {
     setCurrent(`service-${inViewport2?.isIntersecting}`);
   }
+
+  console.log("current***", current);
 
   return (
     <>
@@ -86,13 +94,16 @@ function App() {
             />
 
             {/* The services section contains the services offered by fortex to the community in general, here you can find the effect of superimposing each service on one */}
-            <div className="bg-white  fortex-container w-full mx-auto relative pt-10">
+            <div
+              style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
+              className="bg-white   w-full mx-auto relative pt-10"
+            >
               <div className="service-number">
                 <NumberService setCurrent={setCurrent} />
               </div>
               <div
-                className="bg-white services  fortex-container w-full mx-auto relative pt-10"
-                style={{ zIndex: "10" }}
+                className="bg-white services  w-full mx-auto relative pt-10"
+                style={{ zIndex: "10", maxWidth: upToXl ? "1477px" : "1200px" }}
               >
                 <Services
                   current={current}

@@ -14,7 +14,7 @@ const Layout = ({ children, isExpanded, toggleExpansion, color }) => {
       <div>
         {/* Here all the components inside the layout tag are rendered */}
         <main>{children}</main>
-        <Footer />
+       
       </div>
     </div>
   );

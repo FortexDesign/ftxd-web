@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
@@ -7,9 +7,14 @@ export const NumberService = ({ setCurrent }) => {
 
   // this function detects in which section of the page I am to configure it in the current state variable
   const inViewport2 = useIntersectionObserver(Ref, { rootMargin: "-200px" });
-  if (inViewport2?.isIntersecting === true) {
-    setCurrent(`services-${inViewport2?.isIntersecting}`);
-  }
+ 
+  useEffect(() => {
+    if (inViewport2?.isIntersecting === true) {
+      setCurrent(`services-${inViewport2?.isIntersecting}`);
+    }
+   
+  }, [inViewport2?.isIntersecting, setCurrent])
+  
   return (
     <div>
       {/* Only one number with the type write effect */}

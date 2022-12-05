@@ -10,11 +10,12 @@ const BACKWARD = "backward";
 export const useTypingText = (
   words,
   keySpeed = 1000,
-  maxPauseAmount = 20,
-  wordIndex,
-  setWordIndex
+  maxPauseAmount = 20
+  /*  wordIndex,
+  setWordIndex */
 ) => {
   /*  */
+  const [wordIndex, setWordIndex] = useState(0);
   const [currentWord, setCurrentWord] = useState(words[wordIndex].split(""));
   const [isStopped, setIsStopped] = useState(false);
   const direction = useRef(BACKWARD);
@@ -87,7 +88,10 @@ export const useTypingText = (
         <span>{currentWord.length ? currentWord.join("") : ""}</span>
       </span>
     ),
+
     start: () => setIsStopped(false),
     stop,
+    wordIndex,
+    setWordIndex,
   };
 };

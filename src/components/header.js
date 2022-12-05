@@ -2,11 +2,15 @@ import PropTypes from "prop-types";
 import React from "react";
 import { BiMenu, BiUserCircle } from "react-icons/bi";
 import Logo from "./Logo";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 function Header({ isExpanded, toggleExpansion, color }) {
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
   return (
     <div className="header-fix ">
-      <nav className="flex fortex-container mx-auto flex-wrap items-center justify-between py-6 header-bg">
+      <nav  style={{ maxWidth: upToXl ? "1477px" : "1200px" }} className="flex  mx-auto flex-wrap items-center justify-between py-6 header-bg">
         <div className="flex items-center flex-shrink-0 mr-6 text-white">
           <a href="/">
             <Logo color={color} />

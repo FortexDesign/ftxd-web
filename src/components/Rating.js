@@ -5,16 +5,20 @@ import TypeWriterEffect from "react-typewriter-effect";
 import { performanceItems } from "../common/utils/dummy/performance";
 import Slider from "react-slick";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
-import { Grid, Box, Paper, Stack, useMediaQuery } from "@mui/material";
+import { Grid, Box, Stack, useMediaQuery } from "@mui/material";
 import { experimentalStyled as styled } from "@mui/material/styles";
-import { useTheme } from '@mui/material/styles'
-
+import { useTheme } from "@mui/material/styles";
+import { isFirefox } from "react-device-detect";
+import { useEffect } from "react";
 
 export const Rating = ({ setCurrent }) => {
- 
-  const theme = useTheme()
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  /* const betweenLgXl = useMediaQuery(theme.breakpoints.between('lg', 'xl'))
+  const betweenMdLg = useMediaQuery(theme.breakpoints.between('md', 'lg')) */
+  const betweenMdXl = useMediaQuery(theme.breakpoints.between("md", "xl"));
 
-  const matchDownMD = useMediaQuery(theme.breakpoints.down('lg'))
+  const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
 
   const myRef = document.querySelector(".rating-c");
   /// set slider's settings
@@ -26,14 +30,16 @@ export const Rating = ({ setCurrent }) => {
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
-    
   };
   const Ref = useRef();
 
-  const inViewport2 = useIntersectionObserver(Ref, { rootMargin: "-200px" });
-  if (inViewport2?.isIntersecting === true) {
-    setCurrent(`rating-${inViewport2?.isIntersecting}`);
-  }
+  const inViewport2 = useIntersectionObserver(Ref, {});
+
+  useEffect(() => {
+    if (inViewport2?.isIntersecting === true) {
+      setCurrent(`rating-${inViewport2?.isIntersecting}`);
+    }
+  }, [inViewport2?.isIntersecting, setCurrent]);
 
   const SliderRating = styled(Stack)(({ theme }) => ({
     backgroundColor: "#0f51e4",
@@ -41,7 +47,7 @@ export const Rating = ({ setCurrent }) => {
     padding: theme.spacing(5),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    height:"670px"
+    height: "670px",
   }));
 
   const Companies = styled(Stack)(({ theme }) => ({
@@ -53,18 +59,23 @@ export const Rating = ({ setCurrent }) => {
   }));
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      sx={{ flexGrow: 1 }}
+      ref={Ref}
+      className="rating"
+    >
       <Grid
         sx={{ justifyContent: "center" }}
         container
         spacing={{ xs: 0, md: 0 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
+        columns={{ xs: 2, sm: 12, md: 12, lg: 12 }}
       >
         <Grid
           item
           xs={2}
-          sm={4}
-          md={5.3}
+          sm={6}
+          md={5}
+          lg={upToXl ? 4 : 6}
         >
           <SliderRating>
             <span className="text-white performance-title">
@@ -72,7 +83,7 @@ export const Rating = ({ setCurrent }) => {
                 textStyle={{
                   fontFamily: "grotesk-thin",
                   fontWeight: 0,
-                  letterSpacing: !matchDownMD? "5px":"3px",
+                  letterSpacing: betweenMdXl ? "5px" : "3px",
                   fontSize: "16px",
                   textAlign: "center",
                 }}
@@ -88,7 +99,6 @@ export const Rating = ({ setCurrent }) => {
                 <Stack
                   key={index}
                   justifyContent="center"
-                  
                 >
                   <Grid sx={{ display: "flex", justifyContent: "center", marginTop: "25px", marginBottom: "60px" }}>
                     <img
@@ -97,7 +107,7 @@ export const Rating = ({ setCurrent }) => {
                     ></img>
                   </Grid>
 
-                  <p
+                  <div
                     className="title-item text-white"
                     style={{ marginTop: "30px" }}
                   >
@@ -105,7 +115,7 @@ export const Rating = ({ setCurrent }) => {
                       textStyle={{
                         fontFamily: "grotesk",
                         fontWeight: 500,
-                        fontSize: !matchDownMD? "64px":"50px",
+                        fontSize: betweenMdXl ? "64px" : "50px",
                         textAlign: "center",
                       }}
                       startDelay={100}
@@ -114,9 +124,9 @@ export const Rating = ({ setCurrent }) => {
                       typeSpeed={50}
                       scrollArea={myRef}
                     />
-                  </p>
+                  </div>
                   <p
-                    style={{ fontSize: !matchDownMD?"36px":"30px" }}
+                    style={{ fontSize: betweenMdXl ? "36px" : "30px" }}
                     className="mt-6 text-white"
                   >
                     {item?.description}
@@ -129,17 +139,18 @@ export const Rating = ({ setCurrent }) => {
         <Grid
           item
           xs={2}
-          sm={4}
-          md={5.3}
+          sm={6}
+          md={5}
+          lg={upToXl ? 4 : 6}
         >
           <Companies>
             <h2 className="companies-title mt-3 text-gray-900">
               <TypeWriterEffect
                 textStyle={{
-                  width: !matchDownMD?"480px":"300px",
-                  fontSize: !matchDownMD?"29px":"20px",
+                  width: betweenMdXl || upToXl ? (!isFirefox ? "480px" : "495px") : "300px",
+                  fontSize: betweenMdXl || upToXl ? "29px" : "20px",
                   lineHeight: "38px",
-                  height:"170px"
+                  height: "135px",
                 }}
                 startDelay={100}
                 cursorColor="transparent"
@@ -148,83 +159,19 @@ export const Rating = ({ setCurrent }) => {
                 scrollArea={myRef}
               />
             </h2>
-            <p className="border-b border-primary"></p>
-            <img src={brands} />
+            <p
+              className="border-b border-primary"
+              style={{ marginTop: downToMdSize ? "20px" : "0px" }}
+            ></p>
+            <Grid>
+              <img
+                src={brands}
+                alt="brands"
+              />
+            </Grid>
           </Companies>
         </Grid>
       </Grid>
-      {/* <div className="relative">
-      <div className="fortex-container mx-auto relative rating-c">
-        <aside className="bg-secondary sm:grid sm:grid-cols-2 h-full w-full items-center">
-          <div className="flex flex-col">
-            <span className="text-white performance-title">
-              <TypeWriterEffect
-                textStyle={{
-                  fontFamily: "grotesk",
-                  fontWeight: 0,
-                  letterSpacing: "-0.03em",
-                  fontSize: "32px",
-                  textAlign: "center",
-                }}
-                startDelay={100}
-                cursorColor="transparent"
-                text="Past performance"
-                typeSpeed={50}
-                scrollArea={myRef}
-              />
-            </span>
-
-            <div className="w-100 px-20">
-              <Slider {...settings}>
-                {performanceItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center justify-center"
-                  >
-                    <p className="title-item text-white mx-auto w-full">
-                      <TypeWriterEffect
-                        textStyle={{
-                          fontFamily: "grotesk",
-                          fontWeight: 500,
-                          fontSize: "25px",
-                          textAlign: "center",
-                        }}
-                        startDelay={100}
-                        cursorColor="transparent"
-                        text={item.title}
-                        typeSpeed={50}
-                        scrollArea={myRef}
-                      />
-                    </p>
-                    <p className="mt-6 text-lg w-full text-center text-white">{item?.description}</p>
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          </div>
-          <div className="p-14 md:p-12 bg-white flex flex-col justify-center">
-            <div className="max-w-xl mx-auto text-center md:text-left">
-              <h2 className="companies-title text-gray-900 pb-10  md:text-lg">
-                <TypeWriterEffect
-                  textStyle={{
-                    width: "478px",
-                    fontSize: "30px",
-                    lineHeight: "38px",
-                  }}
-                  startDelay={100}
-                  cursorColor="transparent"
-                  text="We represent a decade of innovation in engineering from the Virgin Islands to Massachusetts to California."
-                  typeSpeed={50}
-                  scrollArea={myRef}
-                />
-              </h2>
-              <p className="border-b border-primary"></p>
-              <img src={brands} />
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div> */}
     </Box>
   );
 };
