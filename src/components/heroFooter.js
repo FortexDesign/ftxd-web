@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
-import {  useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 export const HeroFooter = ({ setCurrent }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
-
-  const Ref = useRef();
   const [isHover, setisHover] = useState(false);
+  const Ref = useRef();
+  const inViewport2 = useIntersectionObserver(Ref, {});
+ 
 
   // this function detects in which section of the page I am to configure it in the current state variable
-  const inViewport2 = useIntersectionObserver(Ref, {});
 
   useEffect(() => {
     if (inViewport2?.isIntersecting === true) {

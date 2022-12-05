@@ -17,6 +17,7 @@ export const Rating = ({ setCurrent }) => {
   /* const betweenLgXl = useMediaQuery(theme.breakpoints.between('lg', 'xl'))
   const betweenMdLg = useMediaQuery(theme.breakpoints.between('md', 'lg')) */
   const betweenMdXl = useMediaQuery(theme.breakpoints.between("md", "xl"));
+
   const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
 
   const myRef = document.querySelector(".rating-c");

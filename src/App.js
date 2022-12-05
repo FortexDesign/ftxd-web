@@ -36,7 +36,7 @@ function App() {
 
   //according to the value of the current colors are assigned to the div
   useEffect(() => {
-    if (current === "competition-true" || current === "hero-true" || current === "heroFooter-true") {
+    if (current === "competition-true" || current === "hero-true" /* || current === "heroFooter-true" */) {
       setcolorDiv("white");
       /*       setIsEnabled(false);
        */
