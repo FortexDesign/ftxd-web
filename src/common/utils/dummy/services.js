@@ -106,7 +106,7 @@ export const services = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique!",
 
     subservices: [
-      {
+       {
         name: "Record Digitization",
         image: RecordDigitizationImage,
       },
@@ -117,7 +117,7 @@ export const services = [
       {
         name: "CAD-GIS Integration Services",
         image: DataConversionSImage,
-      },
+      }, 
       {
         name: "Custom CAD Plug-In & Automation Development",
         image: CustomCADImage,

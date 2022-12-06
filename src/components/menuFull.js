@@ -5,30 +5,34 @@ import { BiUserCircle } from "react-icons/bi";
 import logo from "../images/Logos/Brand.png";
 import { CgClose } from "react-icons/cg";
 import Logo from "./Logo";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
-export const MenuFull = ({ isExpanded, toggleExpansion }) => {
+export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
+  const theme = useTheme();
+  const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
   return (
     <div
-      className="fortex-container mx-auto bg-primary pt-6 "
-      style={{ height: "110%" }}
+      className=" mx-auto bg-primary pt-6 "
+      style={{ height: "110%", maxWidth: upToXl ? "1477px" : "1200px" }}
     >
       <nav className="flex flex-wrap w-full items-center justify-between header-bg">
         <div className=" flex w-full items-center justify-between text-white">
-          <Logo color={"white"} />
+          <Logo color={"white"} isMenuToggled={true} />
 
           {/* Section of menu navigation */}
           <div className=" flex justify-end items-center">
-            <a
+            <button
               style={{
                 border: `0.5px solid white`,
               }}
-              href="#"
+              onClick={() => setDrawerState(true)}
               rel="noreferrer"
               className="contact inline-block mr-3 px-14 py-2  text-sm text-white border-wc hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
             >
               Contact Us
-            </a>
-            <a
+            </button>
+            <button
               style={{
                 borderLeft: `0.5px solid white`,
                 borderTop: `0.5px solid white`,
@@ -40,8 +44,8 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
               className="user inline-block py-2 text-white border-w hover:border-transparent hover:text-black hover:bg-white lg:mt-0"
             >
               <BiUserCircle fontSize={22} />
-            </a>
-            <a
+            </button>
+            <button
               style={{
                 border: `0.5px solid white`,
                 fontSize: "30px !important;",
@@ -51,7 +55,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
               className="inline-block bg-white text-primary leading-none border-w hover:border-white"
             >
               <CgClose fontSize={22} />
-            </a>{" "}
+            </button>{" "}
           </div>
         </div>
         {/*        <div
@@ -65,15 +69,32 @@ export const MenuFull = ({ isExpanded, toggleExpansion }) => {
       <div className="menu sm:px-10 md:px-0 w-full top-0 left-0 bg-primary mt-4  ">
         <div className="border-t border-gray-400 mt-4  flex-1">
           <span className="mt-3 text-gray-400 subhead-menu">NAVIGATION</span>
-          {Navigation1.map((item) => (
-            <a
-              href={item.url}
-              className="text-white text-base flex my-3 items-center "
-            >
-              <BsArrowReturnRight className="mr-4" />
-              <p>{item.title} </p>
-            </a>
-          ))}
+          <a
+            href="#"
+            className="text-white text-base flex my-3 items-center "
+          >
+            <BsArrowReturnRight className="mr-4" />
+            <p>Home </p>
+          </a>
+          <button
+            onClick={()=>setDrawerState(true)}
+            className="text-white text-base flex my-3 items-center "
+          >
+            <BsArrowReturnRight className="mr-4" />
+            <p>Contact Us</p>
+          </button>
+          {/*   {Navigation1.map((item) => (
+            <>
+              <a
+                href={item.action}
+                className="text-white text-base flex my-3 items-center "
+              >
+                <BsArrowReturnRight className="mr-4" />
+                <p>{item.title} </p>
+              </a>
+            
+            </>
+          ))} */}
         </div>
 
         {/* Section Impact studies and certifications */}

@@ -5,12 +5,15 @@ import Logo from "./Logo";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 
-function Header({ isExpanded, toggleExpansion, color }) {
+function Header({ isExpanded, toggleExpansion, color, setDrawerState }) {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
   return (
     <div className="header-fix ">
-      <nav  style={{ maxWidth: upToXl ? "1477px" : "1200px" }} className="flex  mx-auto flex-wrap items-center justify-between py-6 header-bg">
+      <nav
+        style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
+        className="flex  mx-auto flex-wrap items-center justify-between py-6 header-bg"
+      >
         <div className="flex items-center flex-shrink-0 mr-6 text-white">
           <a href="/">
             <Logo color={color} />
@@ -34,42 +37,37 @@ function Header({ isExpanded, toggleExpansion, color }) {
         </div>
 
         {/* This div is visible dynamic with the state*/}
-        <div
-          className={`${
-            isExpanded ? `block` : `hidden`
-          } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
-        >
+        <div className={`${isExpanded ? `block` : `hidden`} w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
           <div className="text-sm lg:flex-grow"></div>
           <div className="flex justify-end items-center">
-            <a
+            <button
               style={{
                 border: `0.5px solid ${color}`,
                 color: `${color}`,
               }}
-              href="#"
+              onClick={() => setDrawerState(true)}
               target="_blank"
               rel="noreferrer"
               className="contact inline-block mr-3 px-14 py-2 mt-4 text-sm  text-white hover:border-transparent border-wc hover:text-primary hover:bg-white lg:mt-0"
             >
               Contact Us
-            </a>
-            <a
+            </button>
+            <button
               href="#"
               style={{
                 borderLeft: `0.5px solid ${color}`,
                 color: `${color}`,
                 borderTop: `0.5px solid ${color}`,
-                color: `${color}`,
+
                 borderBottom: `0.5px solid ${color}`,
-                color: `${color}`,
               }}
               target="_blank"
               rel="noreferrer"
               className="inline-block user mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
             >
               <BiUserCircle fontSize={22} />
-            </a>
-            <a
+            </button>
+            <button
               onClick={() => toggleExpansion(true)}
               href="#"
               style={{
@@ -80,7 +78,7 @@ function Header({ isExpanded, toggleExpansion, color }) {
               className="inline-block mt-4 text-xl leading-none border-w hover:border-transparent hover:text-primary hover:bg-white lg:mt-0"
             >
               <BiMenu fontSize={22} />
-            </a>
+            </button>
           </div>
         </div>
       </nav>

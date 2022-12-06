@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import "./App.css";
 import Layout from "./components/layout";
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -20,6 +20,8 @@ import { NumberService } from "./components/NumberService";
 
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import RightDrawer from "./components/rightDrawer/RightDrawer";
+import HubspotContactForm from "./components/hubspotForm";
 
 function App() {
   const theme = useTheme();
@@ -33,6 +35,11 @@ function App() {
   // State to change the color of header
   const [colorDiv, setcolorDiv] = useState("white");
   const [isEnabled, setIsEnabled] = useState(true);
+  const [drawerState, setDrawerState] = useState(false);
+
+  const handleCloseModal = useCallback(() => {
+    setDrawerState(!drawerState);
+  }, [setDrawerState, drawerState]);
 
   //according to the value of the current colors are assigned to the div
   useEffect(() => {
@@ -59,10 +66,16 @@ function App() {
     setCurrent(`service-${inViewport2?.isIntersecting}`);
   }
 
-  console.log("current***", current);
+  /* console.log("current***", current); */
 
   return (
     <>
+      <RightDrawer
+        drawerState={drawerState}
+        handleDrawerClose={handleCloseModal}
+      >
+        <HubspotContactForm />
+      </RightDrawer>
       {isExpanded ? (
         <div className="absolute bg-primary top-0 left-0 w-full z-10 h-full">
           {/* The menu component is visible when the state "isexpanded" is true */}
@@ -70,6 +83,7 @@ function App() {
             contentDiv={contentDiv}
             isExpanded={isExpanded}
             toggleExpansion={toggleExpansion}
+            setDrawerState={setDrawerState}
           />
         </div>
       ) : (
@@ -78,6 +92,7 @@ function App() {
           color={colorDiv}
           isExpanded={isExpanded}
           toggleExpansion={toggleExpansion}
+          setDrawerState={setDrawerState}
         >
           {/* Parallaz provider is a wrapper to all the react-scroll-parallax targets */}
           <ParallaxProvider>
