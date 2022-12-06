@@ -4,7 +4,7 @@ import * as React from "react";
 const LogoComponent = (props) => (
   <svg
     version="1.0"
-    width={props?.isMenuToggled?"18.5%":"74%"}
+    width={props?.ismenutoggled==="true"?"18.5%":props?.uptoxl ==="true"?"15%":"74%"}
     /* height="37%" */
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

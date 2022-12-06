@@ -11,6 +11,13 @@ import { useMediaQuery } from "@mui/material";
 export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  let uptoxl = false
+  if(upToXl){
+    uptoxl="true"
+  }else{
+    uptoxl="false"
+  }
+
   return (
     <div
       className=" mx-auto bg-primary pt-6 "
@@ -18,7 +25,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
     >
       <nav className="flex flex-wrap w-full items-center justify-between header-bg">
         <div className=" flex w-full items-center justify-between text-white">
-          <Logo color={"white"} isMenuToggled={true} />
+          <Logo color={"white"} ismenutoggled={"true"}  uptoxl={uptoxl}/>
 
           {/* Section of menu navigation */}
           <div className=" flex justify-end items-center">
@@ -37,7 +44,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
                 borderLeft: `0.5px solid white`,
                 borderTop: `0.5px solid white`,
                 borderBottom: `0.5px solid white`,
-                fontSize: "24px !important;",
+                fontSize: "24px !important",
               }}
               href="#"
               rel="noreferrer"
@@ -48,7 +55,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
             <button
               style={{
                 border: `0.5px solid white`,
-                fontSize: "30px !important;",
+                fontSize: "30px !important",
               }}
               href="#"
               onClick={() => toggleExpansion(!isExpanded)}
