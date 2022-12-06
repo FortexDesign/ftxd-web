@@ -20,12 +20,13 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
   const settings = {
     dots: false,
     infinite: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1750,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
     vertical: true,
+    adaptiveHeight: true,
   };
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
@@ -139,7 +140,7 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                     </div> */}
                     <Grid
                       container
-                      spacing={{ xs: 2, sm: 2, md: 5, lg: 5 }}
+                      spacing={{ xs: 2, sm: 2, md: 6, lg: 6, xl: 6 }}
                       columns={{ xs: 2, sm: 12, md: 12, lg: 12 }}
                     >
                       <Grid
@@ -182,6 +183,7 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                               borderBottomWidth: "thin",
                               paddingBottom: "16px",
                               paddingTop: "20px",
+                              paddingLeft: "0px",
                             },
                             paddingTop: "0px",
                           }}
@@ -199,7 +201,7 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                               onMouseLeave={() => setShowRightArrow(false)}
                             >
                               <ListItemButton>
-                                <ListItemIcon>{showRightArrow && nameItem === i.name && <AiFillCaretRight></AiFillCaretRight>}</ListItemIcon>
+                                <ListItemIcon sx={{ marginRight: "7px" }}>{showRightArrow && nameItem === i.name && <AiFillCaretRight></AiFillCaretRight>}</ListItemIcon>
                                 <ListItemText
                                   primary={i.name}
                                   sx={{

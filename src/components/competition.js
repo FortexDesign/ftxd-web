@@ -3,11 +3,9 @@ import HeroImg from "../images/background/Layer3.svg";
 import { BsArrowRight } from "react-icons/bs";
 import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
-import { Grid, Box, Stack, useMediaQuery } from "@mui/material";
+import { Grid, Box,  useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Container } from "@mui/system";
-import { experimentalStyled as styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
+
 
 export const Competition = ({ setCurrent }) => {
   // get the ref of div
