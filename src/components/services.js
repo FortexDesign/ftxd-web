@@ -5,7 +5,6 @@ import { services } from "../common/utils/dummy/services";
 import TypeWriterEffect from "react-typewriter-effect";
 import { ServicesCollapse } from "./ServicesCollapse";
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, useMediaQuery } from "@mui/material";
-import { fontFamily } from "@mui/system";
 import { AiFillCaretRight } from "react-icons/ai";
 import OspImage from "../images/background/TelecommunicationsEngineering/OSPEngineering.png";
 import PermitePackagePImage from "../images/background/PermittingAndCompliance/PermitPackagePrep.png";
@@ -30,6 +29,10 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
   };
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  /* const betweenLgXl = useMediaQuery(theme.breakpoints.between('lg', 'xl'))
+  const betweenMdLg = useMediaQuery(theme.breakpoints.between('md', 'lg')) */
+
+  
 
   const [ImageSwitch, setImageSwitch] = useState([
     {
@@ -58,10 +61,10 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
   const [enabledLocal, setEnabledLocal] = useState(true);
   const [showRightArrow, setShowRightArrow] = useState(false);
   const [nameItem, setNameItem] = useState("");
-  const [subItemIndex, setSubItemIndex] = useState(0);
+  const [, setSubItemIndex] = useState(0);
 
   // Set the references
-  const myRef2 = document.querySelector(".service-title");
+  /* const myRef2 = document.querySelector(".service-title"); */
   const myRef3 = document.querySelector(".services");
   const Ref = useRef();
 

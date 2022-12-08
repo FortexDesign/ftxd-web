@@ -15,17 +15,20 @@ import { Services } from "./components/services";
 import { HeroFooter } from "./components/heroFooter";
 import { PowerfullItems } from "./components/PowerfullItems";
 import { MenuFull } from "./components/menuFull";
-import { Performance } from "./components/Statics";
+/* import { Performance } from "./components/Statics"; */
 import { NumberService } from "./components/NumberService";
 
 import { useTheme } from "@mui/material/styles";
-import { useMediaQuery } from "@mui/material";
+import {  useMediaQuery } from "@mui/material";
 import RightDrawer from "./components/rightDrawer/RightDrawer";
 import HubspotContactForm from "./components/hubspotForm";
 
 function App() {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+   const betweenMdlg = useMediaQuery(theme.breakpoints.between("md", "lg"));
+   const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
+
 
   //  State to expanded menu
   const [isExpanded, toggleExpansion] = useState(false);
@@ -48,7 +51,7 @@ function App() {
       /*       setIsEnabled(false);
        */
     } else {
-      setcolorDiv("#161e34");
+      setcolorDiv(downToMdSize?"white":"#161e34");
     }
 
     if (current === "services-true") {
@@ -56,7 +59,7 @@ function App() {
     } else {
       setIsEnabled(false);
     }
-  }, [current, colorDiv]);
+  }, [current, colorDiv,downToMdSize]);
 
   const Ref = useRef();
 
@@ -110,7 +113,7 @@ function App() {
 
             {/* The services section contains the services offered by fortex to the community in general, here you can find the effect of superimposing each service on one */}
             <div
-              style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
+              style={{ maxWidth: upToXl ? "1477px" :"1200px", paddingLeft:betweenMdlg?"27.5px":"0px", paddingRight:betweenMdlg?"27.5px":"0px" }}
               className="bg-white   w-full mx-auto relative pt-10"
             >
               <div className="service-number">

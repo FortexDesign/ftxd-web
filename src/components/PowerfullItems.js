@@ -8,6 +8,7 @@ import { useMediaQuery } from "@mui/material";
 export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  const betweenMdlg = useMediaQuery(theme.breakpoints.between("md", "lg"));
 
   const myRef = document.querySelector(".powerfull");
 
@@ -32,10 +33,10 @@ export const PowerfullItems = ({ setCurrent, setIsEnabled }) => {
         className="text-primary bg-white power "
       >
         <div
-          style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
+          style={{ maxWidth: upToXl ? "1477px" : "1200px", paddingLeft:betweenMdlg?"27.5px":"0px", paddingRight:betweenMdlg?"27.5px":"0px" }}
           className=" powerfull w-full mx-auto"
         >
-          <div className="max-w-screen-xl py-16 ">
+          <div className=" py-16 ">
             <div className="flex flex-col">
               <span className="numeration">03/</span>
 

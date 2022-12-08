@@ -4,8 +4,8 @@ import * as React from "react";
 const LogoComponent = (props) => (
   <svg
     version="1.0"
-    width={props?.ismenutoggled==="true"?"18.5%":props?.uptoxl ==="true"?"15%":"74%"}
-    /* height="37%" */
+    width={props?.ismenutoggled==="true"&&props?.downtomdsize!=="true"?"18.5%":props?.uptoxl ==="true"?"15%":"74%"}
+    
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 4720.000000 1080.000000"

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import brands from "../images/background/brands.png";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+
 import TypeWriterEffect from "react-typewriter-effect";
 import { performanceItems } from "../common/utils/dummy/performance";
 import Slider from "react-slick";
@@ -14,8 +14,8 @@ import { useEffect } from "react";
 export const Rating = ({ setCurrent }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
-  /* const betweenLgXl = useMediaQuery(theme.breakpoints.between('lg', 'xl'))
-  const betweenMdLg = useMediaQuery(theme.breakpoints.between('md', 'lg')) */
+ /*  const betweenLgXl = useMediaQuery(theme.breakpoints.between("lg", "xl")); */
+  /*const betweenMdLg = useMediaQuery(theme.breakpoints.between('md', 'lg')) */
   const betweenMdXl = useMediaQuery(theme.breakpoints.between("md", "xl"));
 
   const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
@@ -30,6 +30,7 @@ export const Rating = ({ setCurrent }) => {
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
+    adaptiveHeight:false
   };
   const Ref = useRef();
 
@@ -44,10 +45,10 @@ export const Rating = ({ setCurrent }) => {
   const SliderRating = styled(Stack)(({ theme }) => ({
     backgroundColor: "#0f51e4",
     ...theme.typography.body2,
-    padding: theme.spacing(5),
+    padding: theme.spacing(downToMdSize?2:5),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    height: "670px",
+    minHeight: "600px",
   }));
 
   const Companies = styled(Stack)(({ theme }) => ({
@@ -68,14 +69,16 @@ export const Rating = ({ setCurrent }) => {
         sx={{ justifyContent: "center" }}
         container
         spacing={{ xs: 0, md: 0 }}
-        columns={{ xs: 2, sm: 12, md: 12, lg: 12 }}
+        columns={{ xs: 2, sm: 2, md: 12, lg: 12 /* xl:8 */ }}
       >
         <Grid
+          sx={{ maxWidth: upToXl ? "750px!important" : "100%", maxHeight: "670px" }}
           item
           xs={2}
-          sm={6}
-          md={5}
-          lg={upToXl ? 4 : 6}
+          sm={2}
+          md={6}
+          lg={6}
+          /*xl={2.34} */
         >
           <SliderRating>
             <span className="text-white performance-title">
@@ -96,7 +99,7 @@ export const Rating = ({ setCurrent }) => {
             </span>
             <Slider {...settings}>
               {performanceItems.map((item, index) => (
-                <Stack
+                <Grid
                   key={index}
                   justifyContent="center"
                 >
@@ -131,39 +134,46 @@ export const Rating = ({ setCurrent }) => {
                   >
                     {item?.description}
                   </p>
-                </Stack>
+                </Grid>
               ))}
             </Slider>
           </SliderRating>
         </Grid>
         <Grid
+          sx={{ maxWidth: upToXl ? "750px!important" : "100%", maxHeight: "670px" }}
           item
           xs={2}
-          sm={6}
-          md={5}
-          lg={upToXl ? 4 : 6}
+          sm={2}
+          md={6}
+          lg={6}
+          /*  xl={2.34} */
         >
           <Companies>
-            <h2 className="companies-title mt-3 text-gray-900">
-              <TypeWriterEffect
-                textStyle={{
-                  width: betweenMdXl || upToXl ? (!isFirefox ? "480px" : "495px") : "300px",
-                  fontSize: betweenMdXl || upToXl ? "29px" : "20px",
-                  lineHeight: "38px",
-                  height: "135px",
-                }}
-                startDelay={100}
-                cursorColor="transparent"
-                text="We represent a decade of innovation in engineering from the Virgin Islands to Massachusetts to California."
-                typeSpeed={50}
-                scrollArea={myRef}
-              />
-            </h2>
-            <p
-              className="border-b border-primary"
-              style={{ marginTop: downToMdSize ? "20px" : "0px" }}
-            ></p>
+            <Grid >
+              <h2 className="companies-title mt-3 text-gray-900">
+                <TypeWriterEffect
+                  /* , */
+                  textStyle={{
+                    fontSize: betweenMdXl || upToXl ? "29px" : "20px",
+                    lineHeight: "38px",
+                    height: "150px",
+          
+                  }}
+                  startDelay={100}
+                  cursorColor="transparent"
+                  text="We represent a decade of innovation in engineering from the Virgin Islands to Massachusetts to California."
+                  typeSpeed={50}
+                  scrollArea={myRef}
+                  
+                />
+              </h2>
+             
+            </Grid>
             <Grid>
+            <p
+                className="border-b border-primary"
+                style={{ marginTop: downToMdSize ? "20px" : "0px" }}
+              ></p>
               <img
                 src={brands}
                 alt="brands"
