@@ -3,9 +3,8 @@ import HeroImg from "../images/background/Layer3.svg";
 import { BsArrowRight } from "react-icons/bs";
 import TypeWriterEffect from "react-typewriter-effect";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
-import { Grid, Box,  useMediaQuery } from "@mui/material";
+import { Grid, Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
 
 export const Competition = ({ setCurrent }) => {
   // get the ref of div
@@ -33,10 +32,10 @@ export const Competition = ({ setCurrent }) => {
         md={6}
         sx={{
           display: "flex",
-          justifyContent: upToXl ? "end" : "center",
+          justifyContent: upToXl ? "start" : "center",
           paddingRight: upToXl ? "80px" : "190px",
           paddingTop: downToMdSize && "25px",
-          paddingLeft: downToMdSize && "20px",
+          paddingLeft: downToMdSize ? "20px" : upToXl && "12px",
         }}
       >
         <span className="text-id id-comp text-white">01/</span>
@@ -57,16 +56,17 @@ export const Competition = ({ setCurrent }) => {
     >
       <Grid
         direction={downToMdSize ? "column-reverse" : "row"}
-        sx={{ justifyContent: "center", backgroundColor: "#0f51e4", paddingTop: "1.25rem", paddingBottom: "1.25rem" }}
+        sx={{ justifyContent: "center", backgroundColor: "#0f51e4", paddingTop: "1.25rem", paddingBottom: "1.25rem", "& .MuiGrid-item": { maxWidth: "100%" } }}
         container
         spacing={{ xs: 0, md: 0 }}
-        columns={{ xs: 1, sm: 8, md: 12, lg: 12 }}
+        columns={{ xs: 2, sm: 8, md: 12, lg: 12 }}
       >
         <Grid
+          sx={{ maxWidth: upToXl ? "750px!important" : "100%" }}
           item
           xs={2}
           sm={6}
-          md={5}
+          md={6}
           lg={6}
         >
           <Grid sx={{ marginTop: downToMdSize ? "1rem" : "3.5rem" }}>
@@ -74,7 +74,7 @@ export const Competition = ({ setCurrent }) => {
 
             <Grid sx={{ display: "flex", justifyContent: downToMdSize ? "center" : "end" }}>
               <img
-                width={upToXl ? "57%" : downToMdSize ? "85%" : "90%"}
+                width={upToXl ? "90%" : downToMdSize ? "85%" : "90%"}
                 alt="#"
                 src={HeroImg}
                 className=""
@@ -83,23 +83,23 @@ export const Competition = ({ setCurrent }) => {
           </Grid>
         </Grid>
         <Grid
+          sx={{ maxWidth: upToXl ? "750px!important" : "100%" }}
           item
           xs={2}
           sm={6}
-          md={5}
+          md={6}
           lg={6}
         >
           {downToMdSize && number}
-          <div className="p-8 md:p-12">
+          <div className="p-8">
             <div
               className="lg:text-left sm:text-left"
-              style={{ width: upToXl ? "75%" : "100%" }}
+              style={{ width: upToXl ||downToMdSize? "100%" : "85%" }}
             >
               <h2 className="scrollable-div text-2xl font-bold text-white md:text-3xl">
                 <TypeWriterEffect
                   textStyle={{
                     fontFamily: "Grotesk-roman",
-                    width: "362px",
                     fontStyle: "normal",
                     fontWeight: "500",
                     fontSize: upToXl ? "55px" : "45px",
@@ -115,7 +115,7 @@ export const Competition = ({ setCurrent }) => {
               </h2>
               <p
                 style={{ fontSize: upToXl ? "26px" : "16px" }}
-                className="text-gray-300 md:mt-4 md:block"
+                className="text-gray-300 md:mt-4 "
               >
                 We believe well-communicated information is the lifeblood of every organization. Beyond engineering networks, performing field surveys, or crafting meticulously compliant permits: we
                 build end-to-end technology-talent solutions to collect, process, design, and communicate rich engineering data. For the past decade, we have leveraged CAD-GIS automation and nearshore

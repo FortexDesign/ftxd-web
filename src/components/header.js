@@ -8,13 +8,15 @@ import { useMediaQuery } from "@mui/material";
 function Header({ isExpanded, toggleExpansion, color, setDrawerState }) {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  const betweenMdlg = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div className="header-fix ">
       <nav
-        style={{ maxWidth: upToXl ? "1477px" : "1200px" }}
-        className="flex  mx-auto flex-wrap items-center justify-between py-6 header-bg"
+        style={{ maxWidth: upToXl ? "1477px" : "1200px", paddingLeft:betweenMdlg?"27.5px":downToMdSize?"15px":"0px", paddingRight:betweenMdlg?"27.5px":downToMdSize?"15px":"0px" }}
+        className="flex  mx-auto  items-center justify-between py-6 header-bg"
       >
-        <div className="flex items-center flex-shrink-0 mr-6 text-white">
+        <div className="flex items-center  mr-6 text-white">
           <a href="/">
             <Logo color={color} />
           </a>

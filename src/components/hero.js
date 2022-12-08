@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import telecommunications from "../images/background/telecommunications.png";
 import permit from "../images/background/permit2.png";
 import gpr from "../images/background/gpr2.png";
@@ -46,7 +46,7 @@ export const Hero = ({ setCurrent }) => {
   const customSlider = useRef();
 
   /* Words for typing */
-  const { word, wordIndex, setWordIndex } = useTypingText(
+  const { word} = useTypingText(
     ["telecommunications.", "utility permiting.", "utility locating.", "utility engineering.", "ISP engineering.", "surveying."],
     70,
     10 /* , wordIndex, setWordIndex */
@@ -89,6 +89,7 @@ export const Hero = ({ setCurrent }) => {
               {/*Items for the alice-carousel slider  */}
               <div className="containerC">
                 <div
+                
                   style={{ backgroundImage: `url(${telecommunications})` }}
                   className="image w-full "
                 ></div>
@@ -127,7 +128,7 @@ export const Hero = ({ setCurrent }) => {
             </Slider>
           </Container>
           <Container maxWidth={upToXl ? "xl" : "lg"}>
-            <Box sx={{ position: "absolute", display: "flex", justifyContent: "center", flexDirection: "column", top: "40px", height: "100%", width: downToMdSize ? "345px" : "545px" }}>
+            <Box sx={{ position: "absolute", display: "flex", justifyContent: "center", flexDirection: "column", top: "40px", height: "100%", width: downToMdSize ? "300px" : "545px" }}>
               <span className="ml-4 hero-title font-semibold text-white">We design the blueprints for the future of {word}</span>
               <a
                 style={{ width: "202px" }}

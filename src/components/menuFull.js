@@ -1,8 +1,8 @@
-import { Navigation1 } from "../common/utils/dummy/Menu";
+/* import { Navigation1 } from "../common/utils/dummy/Menu"; */
 import { BsArrowReturnRight } from "react-icons/bs";
 import React from "react";
 import { BiUserCircle } from "react-icons/bi";
-import logo from "../images/Logos/Brand.png";
+
 import { CgClose } from "react-icons/cg";
 import Logo from "./Logo";
 import { useTheme } from "@mui/material/styles";
@@ -11,21 +11,29 @@ import { useMediaQuery } from "@mui/material";
 export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
+  const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
   let uptoxl = false
+  let downtomdsize = false
   if(upToXl){
     uptoxl="true"
   }else{
     uptoxl="false"
   }
+  if(downToMdSize){
+    console.log("ess truueeeee");
+    downtomdsize="true"
+  }else{
+    downtomdsize="false"
+  }
 
   return (
     <div
-      className=" mx-auto bg-primary pt-6 "
-      style={{ height: "110%", maxWidth: upToXl ? "1477px" : "1200px" }}
+      className=" mx-auto bg-primary"
+      style={{ height: "110%", maxWidth: upToXl ? "1477px" : "1200px", paddingTop:downToMdSize?"0px":"1.5rem" }}
     >
-      <nav className="flex flex-wrap w-full items-center justify-between header-bg">
+      <nav className="flex flex-wrap w-full items-center justify-between header-bg" style={{  paddingBottom:downToMdSize&&"0px" }}>
         <div className=" flex w-full items-center justify-between text-white">
-          <Logo color={"white"} ismenutoggled={"true"}  uptoxl={uptoxl}/>
+          <Logo color={"white"} ismenutoggled={"true"}  uptoxl={uptoxl} downtomdsize={downtomdsize}/>
 
           {/* Section of menu navigation */}
           <div className=" flex justify-end items-center">
@@ -73,7 +81,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
           <div className="text-sm lg:flex-grow"></div>
         </div> */}
       </nav>
-      <div className="menu sm:px-10 md:px-0 w-full top-0 left-0 bg-primary mt-4  ">
+      <div className="menu sm:px-10 md:px-0 w-full top-0 left-0 bg-primary  ">
         <div className="border-t border-gray-400 mt-4  flex-1">
           <span className="mt-3 text-gray-400 subhead-menu">NAVIGATION</span>
           <a
