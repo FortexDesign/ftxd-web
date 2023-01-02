@@ -5,6 +5,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import "./styles/globals.css";
 import "./styles/powerfull.css";
 import "./styles/companies.css";
+import "./styles/services.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Hero } from "./components/hero";
@@ -103,6 +104,7 @@ function App() {
             <Hero
               setCurrent={setCurrent}
               setcontentDiv={setcontentDiv}
+              setDrawerState={setDrawerState}
             />
 
             {/* This section contain a blue background  */}
@@ -148,6 +150,7 @@ function App() {
             <HeroFooter
               setCurrent={setCurrent}
               setcontentDiv={setcontentDiv}
+              setDrawerState={setDrawerState}
             />
           </ParallaxProvider>
         </Layout>

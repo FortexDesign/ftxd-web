@@ -4,7 +4,7 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-export const HeroFooter = ({ setCurrent }) => {
+export const HeroFooter = ({ setCurrent, setDrawerState }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
   const betweenMdlg = useMediaQuery(theme.breakpoints.between("md", "lg"));
@@ -40,12 +40,13 @@ export const HeroFooter = ({ setCurrent }) => {
 
             <div style={{paddingRight:downToMdSize?"0px":"100px", justifyContent:downToMdSize?"center":"end"}} className="flex mt-4 md:mt-8 hero-footer xs:self-start sm:mr-0">
               <button
+              onClick={()=>setDrawerState(true)}
                 onMouseEnter={() => setisHover(!isHover)}
                 href="#"
                 className="inline-flex w-auto items-center px-16 py-2 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none focus:ring focus:ring-yellow-400"
               >
                 Let's disrupt together
-                <BsArrowRight className="text-white  ml-2 w-auto mr-0" />
+                <BsArrowRight className="ml-2 w-auto mr-0" />
               </button>
             </div>
           </div>

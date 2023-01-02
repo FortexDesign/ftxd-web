@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { services } from "../common/utils/dummy/services";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
+
 export const ServicesCollapse = () => {
     // State to set the image in section viewport
   const [ImageSwitch, setImageSwitch] = useState({
@@ -17,24 +18,25 @@ export const ServicesCollapse = () => {
 
       {services.map((item) => (
         <div className="space-y-4" key={item.id}>
-          <details className="group">
-            <summary className="flex items-center justify-between w-full py-4 cursor-pointer border-t  border-primary">
+          <details className="group serviceCollapseSummary">
+            <summary className="flex items-center justify-between w-full py-4 border-t  border-primary">
               <div className="flex w-full items-center  lg:text-2xl sm:text-base service-head">
-                <h5 className=" text-gray-900 lg:py-4 sm:py-1 text-start w-52 ">
+                <h5 style={{"width":"5rem"}}  className="text-gray-900 lg:py-4 sm:py-1 text-start">
                   {item.id}
                 </h5>
                 <div className="flex w-full justify-end">
                   <h5 className="mr-4 text-gray-900 lg:py-4 sm:py-1 text-end">
                     {item.title}
                   </h5>
-                  <AiOutlineArrowDown />
+                  
                 </div>
+                <AiOutlineArrowDown fontSize={'1.5rem'}/>
               </div>
             </summary>
 
             <div className="services-container">
               {/* This section contain all the item inside one service and when the span is clicked change the image in the service */}
-              <div className="flex flex-col flex-1 font-medium justify-center cursor-pointer">
+              <div className="flex flex-col flex-1 font-medium justify-center">
                 {item.subservices.map((i, ix) => (
                   <span
                     key={ix}

@@ -14,7 +14,7 @@ import { useEffect } from "react";
 export const Rating = ({ setCurrent }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
- /*  const betweenLgXl = useMediaQuery(theme.breakpoints.between("lg", "xl")); */
+  /*  const betweenLgXl = useMediaQuery(theme.breakpoints.between("lg", "xl")); */
   /*const betweenMdLg = useMediaQuery(theme.breakpoints.between('md', 'lg')) */
   const betweenMdXl = useMediaQuery(theme.breakpoints.between("md", "xl"));
 
@@ -30,7 +30,7 @@ export const Rating = ({ setCurrent }) => {
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
-    adaptiveHeight:false
+    adaptiveHeight: false,
   };
   const Ref = useRef();
 
@@ -45,7 +45,7 @@ export const Rating = ({ setCurrent }) => {
   const SliderRating = styled(Stack)(({ theme }) => ({
     backgroundColor: "#0f51e4",
     ...theme.typography.body2,
-    padding: theme.spacing(downToMdSize?2:5),
+    padding: theme.spacing(downToMdSize ? 2 : 5),
     textAlign: "center",
     color: theme.palette.text.secondary,
     minHeight: "600px",
@@ -149,7 +149,7 @@ export const Rating = ({ setCurrent }) => {
           /*  xl={2.34} */
         >
           <Companies>
-            <Grid >
+            <Grid>
               <h2 className="companies-title mt-3 text-gray-900">
                 <TypeWriterEffect
                   /* , */
@@ -157,20 +157,17 @@ export const Rating = ({ setCurrent }) => {
                     fontSize: betweenMdXl || upToXl ? "29px" : "20px",
                     lineHeight: "38px",
                     height: "150px",
-          
                   }}
                   startDelay={100}
                   cursorColor="transparent"
                   text="We represent a decade of innovation in engineering from the Virgin Islands to Massachusetts to California."
                   typeSpeed={50}
                   scrollArea={myRef}
-                  
                 />
               </h2>
-             
             </Grid>
             <Grid>
-            <p
+              <p
                 className="border-b border-primary"
                 style={{ marginTop: downToMdSize ? "20px" : "0px" }}
               ></p>

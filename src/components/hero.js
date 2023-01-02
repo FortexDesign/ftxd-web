@@ -15,7 +15,7 @@ import { useTheme } from "@mui/material/styles";
 import { useTypingText } from "../hooks/useTypingText";
 import { Container } from "@mui/system";
 
-export const Hero = ({ setCurrent }) => {
+export const Hero = ({ setCurrent, setDrawerState }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
   const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
@@ -74,11 +74,15 @@ export const Hero = ({ setCurrent }) => {
           sm={12}
           md={12}
           lg={upToXl ? 8 : 12}
+          sx={{ '& .MuiContainer-root':{
+            paddingLeft:upToXl?'24px':'0px',
+            paddingRight:upToXl?'24px':'0px'
+          }}}
         >
           <Container
             sx={{
               paddingLeft: downToMdSize ? "0px" : "24px",
-              paddingRight: downToMdSize ? "0px" : "24px",
+              paddingRight: downToMdSize ? "0px" : "24px"
             }}
             maxWidth={upToXl ? "xl" : "lg"}
           >
@@ -128,16 +132,21 @@ export const Hero = ({ setCurrent }) => {
             </Slider>
           </Container>
           <Container maxWidth={upToXl ? "xl" : "lg"}>
-            <Box sx={{ position: "absolute", display: "flex", justifyContent: "center", flexDirection: "column", top: "40px", height: "100%", width: downToMdSize ? "300px" : "545px" }}>
-              <span className="ml-4 hero-title font-semibold text-white">We design the blueprints for the future of {word}</span>
-              <a
-                style={{ width: "202px" }}
-                href="_blank"
-                className="flex justify-center ml-4 items-center  py-2 mt-14 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none focus:ring focus:ring-yellow-400"
-              >
-                <span>Get started</span>
-                <BsArrowRight className="text-white hover:text-primary ml-2 w-auto mr-0" />
-              </a>
+            
+             <Box sx={{ position: "absolute", display: "flex", justifyContent: "center", flexDirection: "column", top: "40px", height: "100%", width: downToMdSize ? "300px" : "545px" }}>
+             <span className="ml-4 hero-title font-semibold text-white">We design the blueprints for the future of {word}</span>
+            <button
+              style={{
+                border: `0.5px solid white`,
+                width:"45%"
+              }}
+              onClick={() => setDrawerState(true)}
+              rel="noreferrer"
+              className="flex justify-center ml-4 items-center  py-2 mt-14 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none  "
+            >
+              Get started
+              <BsArrowRight className=" ml-2 w-auto mr-0" />
+            </button>
             </Box>
           </Container>
         </Grid>
