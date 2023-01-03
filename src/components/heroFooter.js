@@ -12,7 +12,6 @@ export const HeroFooter = ({ setCurrent, setDrawerState }) => {
   const [isHover, setisHover] = useState(false);
   const Ref = useRef();
   const inViewport2 = useIntersectionObserver(Ref, {});
- 
 
   // this function detects in which section of the page I am to configure it in the current state variable
 
@@ -29,7 +28,7 @@ export const HeroFooter = ({ setCurrent, setDrawerState }) => {
     >
       <div className="bg-primaryYankee sm:px-10 lg:px-0 ">
         <aside
-          style={{ maxWidth: upToXl ? "1477px" : "1200px", paddingLeft:betweenMdlg?"27.5px":"0px", paddingRight:betweenMdlg?"27.5px":"0px" }}
+          style={{ maxWidth: upToXl ? "1477px" : "1200px", paddingLeft: betweenMdlg ? "27.5px" : "0px", paddingRight: betweenMdlg ? "27.5px" : "0px" }}
           className="overflow-hidden flex flex-col  mx-auto w-full py-10"
         >
           <h2 className="text-base font-bold text-white head-Hf">04 /</h2>
@@ -38,12 +37,15 @@ export const HeroFooter = ({ setCurrent, setDrawerState }) => {
               <h2 className="font-bold text-white hero-footer-title  hero-f">Get Started Now</h2>
             </div>
 
-            <div style={{paddingRight:downToMdSize?"0px":"100px", justifyContent:downToMdSize?"center":"end"}} className="flex mt-4 md:mt-8 hero-footer xs:self-start sm:mr-0">
+            <div
+              style={{ paddingRight: downToMdSize ? "0px" : "100px", justifyContent: downToMdSize ? "center" : "end" }}
+              className="flex mt-4 md:mt-8 hero-footer xs:self-start sm:mr-0"
+            >
               <button
-              onClick={()=>setDrawerState(true)}
+                onClick={() => setDrawerState(true)}
                 onMouseEnter={() => setisHover(!isHover)}
                 href="#"
-                className="inline-flex w-auto items-center px-16 py-2 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none focus:ring focus:ring-yellow-400"
+                className="inline-flex w-auto items-center px-16 py-2 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none focus:ring"
               >
                 Let's disrupt together
                 <BsArrowRight className="ml-2 w-auto mr-0" />

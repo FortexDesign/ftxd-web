@@ -12,20 +12,21 @@ export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
   const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
-  let uptoxl = false
-  let downtomdsize = false
-  if(upToXl){
-    uptoxl="true"
-  }else{
-    uptoxl="false"
-  }
-  if(downToMdSize){
-    console.log("ess truueeeee");
-    downtomdsize="true"
-  }else{
-    downtomdsize="false"
-  }
+ 
+  let logoWidth =''
 
+/* Setting the width of the logo based on the screen size. */
+
+  if(downToMdSize){
+    logoWidth = '60%'
+  }else{
+    if(upToXl){
+      logoWidth = '15%'
+    }else{
+      logoWidth = '18.5%'
+    }
+  }
+ 
   return (
     <div
       className=" mx-auto bg-primary"
@@ -33,7 +34,7 @@ export const MenuFull = ({ isExpanded, toggleExpansion, setDrawerState }) => {
     >
       <nav className="flex flex-wrap w-full items-center justify-between header-bg" style={{  paddingBottom:downToMdSize&&"0px" }}>
         <div className=" flex w-full items-center justify-between text-white">
-          <Logo color={"white"} ismenutoggled={"true"}  uptoxl={uptoxl} downtomdsize={downtomdsize}/>
+          <Logo color={"white"} logoWidth={logoWidth} />
 
           {/* Section of menu navigation */}
           <div className=" flex justify-end items-center">

@@ -195,6 +195,9 @@ export const Services = ({ setCurrent, isEnabled, current }) => {
                                     minWidth: "0px",
                                     color: "#141c32",
                                   },
+                                  "& .MuiListItemButton-root": {
+                                    cursor:"auto",
+                                  },
                                 }}
                                 onMouseEnter={() => handleItemHover(i.name, i.image, index, ix)}
                                 onMouseLeave={() => setShowRightArrow(false)}

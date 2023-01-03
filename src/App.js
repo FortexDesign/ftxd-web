@@ -5,7 +5,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import "./styles/globals.css";
 import "./styles/powerfull.css";
 import "./styles/companies.css";
-import "./styles/services.css"
+import "./styles/services.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Hero } from "./components/hero";
@@ -20,16 +20,15 @@ import { MenuFull } from "./components/menuFull";
 import { NumberService } from "./components/NumberService";
 
 import { useTheme } from "@mui/material/styles";
-import {  useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import RightDrawer from "./components/rightDrawer/RightDrawer";
 import HubspotContactForm from "./components/hubspotForm";
 
 function App() {
   const theme = useTheme();
   const upToXl = useMediaQuery(theme.breakpoints.up("xl"));
-   const betweenMdlg = useMediaQuery(theme.breakpoints.between("md", "lg"));
-   const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
-
+  const betweenMdlg = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const downToMdSize = useMediaQuery(theme.breakpoints.down("md"));
 
   //  State to expanded menu
   const [isExpanded, toggleExpansion] = useState(false);
@@ -52,7 +51,7 @@ function App() {
       /*       setIsEnabled(false);
        */
     } else {
-      setcolorDiv(downToMdSize?"white":"#161e34");
+      setcolorDiv(downToMdSize ? "white" : "#161e34");
     }
 
     if (current === "services-true") {
@@ -60,7 +59,7 @@ function App() {
     } else {
       setIsEnabled(false);
     }
-  }, [current, colorDiv,downToMdSize]);
+  }, [current, colorDiv, downToMdSize]);
 
   const Ref = useRef();
 
@@ -111,11 +110,12 @@ function App() {
             <Competition
               setCurrent={setCurrent}
               setcontentDiv={setcontentDiv}
+              setDrawerState={setDrawerState}
             />
 
             {/* The services section contains the services offered by fortex to the community in general, here you can find the effect of superimposing each service on one */}
             <div
-              style={{ maxWidth: upToXl ? "1477px" :"1200px", paddingLeft:betweenMdlg?"27.5px":"0px", paddingRight:betweenMdlg?"27.5px":"0px" }}
+              style={{ maxWidth: upToXl ? "1477px" : "1200px", paddingLeft: betweenMdlg ? "27.5px" : "0px", paddingRight: betweenMdlg ? "27.5px" : "0px" }}
               className="bg-white   w-full mx-auto relative pt-10"
             >
               <div className="service-number">

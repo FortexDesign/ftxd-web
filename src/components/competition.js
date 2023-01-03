@@ -6,7 +6,7 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { Grid, Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-export const Competition = ({ setCurrent }) => {
+export const Competition = ({ setCurrent, setDrawerState }) => {
   // get the ref of div
 
   const theme = useTheme();
@@ -94,7 +94,7 @@ export const Competition = ({ setCurrent }) => {
           <div className="p-8">
             <div
               className="lg:text-left sm:text-left"
-              style={{ width: upToXl ||downToMdSize? "100%" : "85%" }}
+              style={{ width: upToXl || downToMdSize ? "100%" : "85%" }}
             >
               <h2 className="scrollable-div text-2xl font-bold text-white md:text-3xl">
                 <TypeWriterEffect
@@ -122,13 +122,18 @@ export const Competition = ({ setCurrent }) => {
                 engineering talent to deliver value at an unparalleled cost and scale.
               </p>
               <div className="mt-4 md:mt-8">
-                <a
-                  href="_blank"
-                  className="inline-flex items-center px-12 py-1.5 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none focus:ring focus:ring-yellow-400"
+                <button
+                  style={{
+                    border: `0.5px solid white`,
+                    width: "50%",
+                  }}
+                  onClick={() => setDrawerState(true)}
+                  rel="noreferrer"
+                  className="flex justify-center  items-center  py-2 mt-14 text-sm font-medium text-white transition border border-white hover:bg-white hover:text-primary focus:outline-none  "
                 >
                   Let's disrupt together
-                  <BsArrowRight className="text-white hover:text-primary ml-2 w-auto mr-0" />
-                </a>
+                  <BsArrowRight className=" ml-2 w-auto mr-0" />
+                </button>
               </div>
             </div>
           </div>
